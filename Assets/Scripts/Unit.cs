@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Unit : MonoBehaviour
 {
@@ -11,10 +10,12 @@ public class Unit : MonoBehaviour
     [SerializeField] private float limittime = 5f;
     private float timer;
     private Vector2 moveDirection;
-    private int rand;
+
+    private EventSystem eventSystem;
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        eventSystem = GetComponent<EventSystem>();
     }
     private void Start()
     {
@@ -23,14 +24,14 @@ public class Unit : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (GameManager.Instance.isPlaying)
+        if (GameManager.Instance.isPlaying &&!eventSystem.isEvent)
         {
             transform.Translate(moveDirection * speed * Time.fixedDeltaTime);
         }
     }
     void Update()
     {
-        if (GameManager.Instance.isPlaying)
+        if (GameManager.Instance.isPlaying && !eventSystem.isEvent)
         {
             timer += Time.deltaTime;
             if(timer> limittime)

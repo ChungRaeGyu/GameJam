@@ -1,6 +1,4 @@
-using NUnit.Framework;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class SpawnSystem : MonoBehaviour
@@ -9,8 +7,14 @@ public class SpawnSystem : MonoBehaviour
     int rareRate = 5;
 
     [SerializeField] GameObject unitPrefab;
+
+    public List<GameObject> units = new List<GameObject>();
     public void Spawn()
-    { 
+    {
+        if (GameManager.Instance.spawnCount == 5 || GameManager.Instance.spawnCount == 9)
+        {
+            rareRate += 10;
+        }
         int rand = Random.Range(0, 100);
         if (rand < rareRate)
         {
@@ -20,8 +24,7 @@ public class SpawnSystem : MonoBehaviour
             Unit tempUnit = temp.GetComponent<Unit>();
             tempUnit.unitSO = FindRareUnit(tempSO[0], tempSO[1]);
             tempUnit.Init();
-
-
+            units.Add(temp);
         }
         else if (rand < rareRate+normalRate)
         {
@@ -33,6 +36,7 @@ public class SpawnSystem : MonoBehaviour
             Unit tempUnit = temp.GetComponent<Unit>();
             tempUnit.unitSO = tempSO[random];
             tempUnit.Init();
+            units.Add(temp);
         }
         else
         {

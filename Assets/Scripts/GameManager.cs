@@ -41,6 +41,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] Sprite uiSprite; //버튼의 기본 이미지
 
     public bool isPlaying = false;
+
+    public int spawnCount = 0;
+
+    
     public void ChoiceDNAScrollViewControl(GameObject obj = null)
     {
         choiceDNAScrollView.SetActive(!choiceDNAScrollView.activeSelf);
