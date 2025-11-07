@@ -170,6 +170,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2accfc4ceab65b849b03e4e28879d8e0, type: 3}
   maxEnergy: 4
   currentEnergy: 0
+  energys: []
 --- !u!1 &33004584
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &42738372
 RectTransform:
   m_ObjectHideFlags: 0
