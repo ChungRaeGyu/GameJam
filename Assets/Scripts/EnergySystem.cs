@@ -9,7 +9,7 @@ public class EnergySystem : MonoBehaviour
     [SerializeField] Sprite[] energySprites;
     [SerializeField] int maxEnergy = 4;
     [SerializeField] int currentEnergy;
-    [SerializeField] Image[] energys;
+    Image[] energys;
 
     private void Awake()
     {

@@ -1,3 +1,6 @@
+using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum EventType
@@ -29,6 +32,7 @@ public class EventSystem : MonoBehaviour
     }
     private void Update()
     {
+        if (!GameManager.Instance.isPlaying)return;
         if (timer < limittime)
         {
             timer += Time.deltaTime;
@@ -44,31 +48,35 @@ public class EventSystem : MonoBehaviour
     {
         int rand = Random.Range(0, 100);
         isEvent = true;
-        if (rand < fightEventRate)
-        {
-            if (GameManager.Instance.spawnSystem.units.Count <= 1)
-                return;
-            //fight //´Þ¶óºÙ±â
+        Debug.Log("¸ØÃã");
+        if (GameManager.Instance.spawnSystem.units.Count>=2)
             TogetherEvent((int)EventType.Fight);
-        }
-        else if (rand < fightEventRate + painEventRate)
-        {
-            //pain //È¥ÀÚ
-            AloneEvent((int)EventType.Pain);
-        }
-        else if (rand < fightEventRate + painEventRate + loveEventRate)
-        {
-            if (GameManager.Instance.spawnSystem.units.Count <= 1)
-                return;
-            //love //´Þ¶óºÙ±â
-            TogetherEvent((int)EventType.Love);
 
-        }
-        else
-        {
-            AloneEvent((int)EventType.Lonley);
-            //lonley //È¥ÀÚ
-        }
+        /*        if (rand < fightEventRate)
+                {
+                    if (GameManager.Instance.spawnSystem.units.Count <= 1)
+                        return;
+                    //fight //´Þ¶óºÙ±â
+                    TogetherEvent((int)EventType.Fight);
+                }
+                else if (rand < fightEventRate + painEventRate)
+                {
+                    //pain //È¥ÀÚ
+                    AloneEvent((int)EventType.Pain);
+                }
+                else if (rand < fightEventRate + painEventRate + loveEventRate)
+                {
+                    if (GameManager.Instance.spawnSystem.units.Count <= 1)
+                        return;
+                    //love //´Þ¶óºÙ±â
+                    TogetherEvent((int)EventType.Love);
+
+                }
+                else
+                {
+                    AloneEvent((int)EventType.Lonley);
+                    //lonley //È¥ÀÚ
+                }*/
     }
 
     private void AloneEvent(int type)
@@ -82,29 +90,45 @@ public class EventSystem : MonoBehaviour
     {
         int num;
         GameObject temp2;
-        do
+        List<GameObject> availableUnits = new List<GameObject>();
+        foreach (var t in GameManager.Instance.spawnSystem.units)
         {
-            num = Random.Range(0, GameManager.Instance.spawnSystem.units.Count);
-            temp2 = GameManager.Instance.spawnSystem.units[num];
-        } while (temp2 == this.gameObject);
+            if (t != this.gameObject && t.GetComponent<EventSystem>().isEvent == false)
+            {
+                availableUnits.Add(t);
+            }
+        }
+        if (availableUnits.Count == 0) return; 
+        temp2 = availableUnits[Random.Range(0, availableUnits.Count)];
 
-        while (Vector2.Distance(transform.position,temp2.transform.position)<50)
+        StartCoroutine(MoveTogether(temp2, type));
+
+    }
+    IEnumerator MoveTogether(GameObject temp2, int type)
+    {
+        while (Vector2.Distance(transform.position, temp2.transform.position) > 15)
         {
             gameObject.transform.position = Vector2.MoveTowards(transform.position, temp2.transform.position, speed * Time.deltaTime);
             temp2.transform.position = Vector2.MoveTowards(temp2.transform.position, gameObject.transform.position, speed * Time.deltaTime);
+            yield return null;
         }
-
         GameObject temp = Instantiate(events[type]);
         EventParent eventParent = temp.GetComponent<EventParent>();
 
         eventParent.target1 = this.gameObject;
         eventParent.target2 = temp2;
-        
-        temp2.GetComponent<EventSystem>().isEvent = true;
+
+        var eventSystem = temp2.GetComponent<EventSystem>();
+        eventSystem.isEvent = true;
+        eventSystem.timer = 0;
+
         Vector2 vector2 = (transform.position + temp2.transform.position) / 2;
         temp.transform.position = vector2;
-    }
+        yield return new WaitForSecondsRealtime(GameManager.Instance.EventTimer);
+        isEvent = false;
+        eventSystem.isEvent = false;
 
+    }
     public void EventOver()
     {
         isEvent = false;

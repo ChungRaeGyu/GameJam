@@ -43,6 +43,7 @@ public class SpawnSystem : MonoBehaviour
             GameManager.Instance.ShowDescription("FAIL");
             //실패확률 나머지 
         }
+        GameManager.Instance.manipulationDNA.Clear();
     }
 
     private UnitSO[] KeyToArray()

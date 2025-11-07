@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject currentDNASlot;
 
-    public Dictionary<GameObject,UnitSO> manipulationDNA;
+    public Dictionary<GameObject,UnitSO> manipulationDNA = new Dictionary<GameObject, UnitSO>();
 
     [SerializeField] GameObject choiceDNAScrollView;
     [SerializeField] GameObject spaceBarPanel;
@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     public int spawnCount = 0;
 
+    public float EventTimer = 2f;
     
     public void ChoiceDNAScrollViewControl(GameObject obj = null)
     {
@@ -66,26 +67,26 @@ public class GameManager : MonoBehaviour
 
     public void SpaceBarPanelControl()
     {
-        if(energySystem.UseEnergy())
+        if (manipulationDNA.Count == 2)
         {
-            if (manipulationDNA.Count == 2)
+            if (energySystem.UseEnergy())
             {
                 spaceBarPanel.SetActive(!spaceBarPanel.activeSelf);
-                foreach(var t in manipulationDNA)
+                foreach (var t in manipulationDNA)
                 {
                     t.Key.GetComponent<Image>().sprite = uiSprite;
                 }
-                manipulationDNA.Clear();
             }
             else
             {
-                ShowDescription("Choose DNA");
+                ShowDescription("a lack of energy");
             }
         }
         else
         {
-            ShowDescription("a lack of energy");
+            ShowDescription("Choose DNA");
         }
+
     }
 
     public void ShowDescription(string text)

@@ -18,7 +18,14 @@ public class UnitCard : MonoBehaviour
     private void ChoiceDNA()
     {
         GameManager.Instance.currentDNASlot.GetComponent<Image>().sprite = unitso.sprite;
-        GameManager.Instance.manipulationDNA[GameManager.Instance.currentDNASlot] = unitso;
+        if(GameManager.Instance.manipulationDNA.ContainsKey(GameManager.Instance.currentDNASlot))
+        {
+            GameManager.Instance.manipulationDNA[GameManager.Instance.currentDNASlot] = unitso;
+        }
+        else
+        {
+            GameManager.Instance.manipulationDNA.Add(GameManager.Instance.currentDNASlot, unitso);
+        }
         GameManager.Instance.ChoiceDNAScrollViewControl();
    
     }
