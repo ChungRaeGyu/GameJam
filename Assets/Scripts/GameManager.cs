@@ -1,6 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,10 +20,16 @@ public class GameManager : MonoBehaviour
         }
 
     }
+    public SpawnSystem spawnSystem;
+    public EnergySystem energySystem;
     [SerializeField] private GameObject DNAManipulationPanel;
 
-    public UnitSO[] units;
+    public UnitSO[] normalUnitsSO;
+    public RareUnitSO[] rareUnitsSO;
+
     public GameObject currentDNASlot;
+
+    public Dictionary<GameObject,UnitSO> manipulationDNA;
 
     [SerializeField] GameObject choiceDNAScrollView;
     [SerializeField] GameObject spaceBarPanel;
@@ -30,6 +38,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject testDescriptionPanel;
     [SerializeField] TMP_Text testText;
 
+    [SerializeField] Sprite uiSprite; //버튼의 기본 이미지
+
+    public bool isPlaying = false;
     public void ChoiceDNAScrollViewControl(GameObject obj = null)
     {
         choiceDNAScrollView.SetActive(!choiceDNAScrollView.activeSelf);
@@ -46,11 +57,31 @@ public class GameManager : MonoBehaviour
     public void DNAManipulationPanelControl()
     {
         DNAManipulationPanel.SetActive(!DNAManipulationPanel.activeSelf);
+        isPlaying  = !DNAManipulationPanel.activeSelf;
     }
 
     public void SpaceBarPanelControl()
     {
-        spaceBarPanel.SetActive(!spaceBarPanel.activeSelf);
+        if(energySystem.UseEnergy())
+        {
+            if (manipulationDNA.Count == 2)
+            {
+                spaceBarPanel.SetActive(!spaceBarPanel.activeSelf);
+                foreach(var t in manipulationDNA)
+                {
+                    t.Key.GetComponent<Image>().sprite = uiSprite;
+                }
+                manipulationDNA.Clear();
+            }
+            else
+            {
+                ShowDescription("Choose DNA");
+            }
+        }
+        else
+        {
+            ShowDescription("a lack of energy");
+        }
     }
 
     public void ShowDescription(string text)
@@ -63,5 +94,9 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0.3f);
         testDescriptionPanel.SetActive(false);
+    }
+    private void Start()
+    {
+
     }
 }

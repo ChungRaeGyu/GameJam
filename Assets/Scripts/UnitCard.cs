@@ -18,8 +18,9 @@ public class UnitCard : MonoBehaviour
     private void ChoiceDNA()
     {
         GameManager.Instance.currentDNASlot.GetComponent<Image>().sprite = unitso.sprite;
+        GameManager.Instance.manipulationDNA[GameManager.Instance.currentDNASlot] = unitso;
         GameManager.Instance.ChoiceDNAScrollViewControl();
-        //여기서 확률 올려주기
+   
     }
 
     

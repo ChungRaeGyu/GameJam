@@ -24,12 +24,17 @@ public class EnergySystem : MonoBehaviour
         }
     }
 
-    public void UseEnergy()
+    public bool UseEnergy()
     {
         if (currentEnergy > 0)
         {
             currentEnergy--;
             energys[currentEnergy].sprite = energySprites[1];
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

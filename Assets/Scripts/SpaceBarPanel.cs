@@ -48,6 +48,7 @@ public class SpaceBarPanel : MonoBehaviour
                     //여기서 확률 조정해주기
                     Debug.Log("Success");
                     GameManager.Instance.ShowDescription("Success");
+                    GameManager.Instance.spawnSystem.Spawn();
                     //소환 
                     over = false;
                     yield return new WaitForSecondsRealtime(0.3f);

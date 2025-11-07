@@ -8,10 +8,10 @@ public class ChoiceDNASystem : MonoBehaviour
 
     private void Start()
     {
-        for(int i=0; i < GameManager.Instance.units.Length; i++)
+        for(int i=0; i < GameManager.Instance.normalUnitsSO.Length; i++)
         {
             GameObject temp = Instantiate(cardPrefab, content);
-            temp.GetComponent<UnitCard>().unitso = GameManager.Instance.units[i];
+            temp.GetComponent<UnitCard>().unitso = GameManager.Instance.normalUnitsSO[i];
 
         }
     }
