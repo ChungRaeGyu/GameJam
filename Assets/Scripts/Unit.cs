@@ -45,6 +45,10 @@ public class Unit : MonoBehaviour
     public void Init()
     {
         spriteRenderer.sprite = unitSO.sprite;
+        //여기서 성격을 정해주자
+        unitSO.unitKind = (kind)Random.Range(0, (int)kind.Count);
+        //성격에 따른 EventRate 조정
+        eventSystem.SetRate();
         GameManager.Instance.PlayingControl(true);
     }
 

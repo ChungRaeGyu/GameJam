@@ -2,36 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public int goal;
+
+    [HideInInspector]
+    public UnitSO[] normalUnitsSO;
+    [HideInInspector]
+    public RareUnitSO[] rareUnitsSO;
     private void Awake()
     {
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-
+        normalUnitsSO = DataManager.Instance.GetSO();
+        rareUnitsSO = DataManager.Instance.GetRareSO();
+        goal = DataManager.Instance.GetGoal();
     }
     public SpawnSystem spawnSystem;
     public EnergySystem energySystem;
-    [SerializeField] private GameObject DNAManipulationPanel;
 
-    public UnitSO[] normalUnitsSO;
-    public RareUnitSO[] rareUnitsSO;
 
+
+    [Header("DNA")]
     public GameObject currentDNASlot;
-
     public Dictionary<GameObject,UnitSO> manipulationDNA = new Dictionary<GameObject, UnitSO>();
-
+    [SerializeField] private GameObject DNAManipulationPanel;
     [SerializeField] GameObject choiceDNAScrollView;
+    
     [SerializeField] GameObject spaceBarPanel;
 
     [Header("EventSystem")]
@@ -47,8 +54,8 @@ public class GameManager : MonoBehaviour
     public int spawnCount = 0;
 
     public float EventTimer = 2f;
-    
 
+ 
     public void ChoiceDNAScrollViewControl(GameObject obj = null)
     {
         choiceDNAScrollView.SetActive(!choiceDNAScrollView.activeSelf);
@@ -108,8 +115,20 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
         testDescriptionPanel.SetActive(false);
     }
-    private void Start()
+    public void GameOver(int num)
     {
+        if (num >= goal) 
+        {
+            PlayingControl(false);
+            StartCoroutine(GameIsOver());
+            
+        }
+    }
 
+    IEnumerator GameIsOver()
+    {
+        ShowDescription("You Win!");
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+        SceneManager.LoadScene("CutScene");
     }
 }

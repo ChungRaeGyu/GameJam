@@ -5,11 +5,13 @@ public enum kind
     curious,
     cowardly,
     friendly,
-    cynical
+    cynical,
+    Count
 }
 [CreateAssetMenu(fileName = "UnitSO", menuName = "Scriptable Objects/UnitSO")]
 public class UnitSO : ScriptableObject
 {
     public Sprite sprite;
+    [HideInInspector]
     public kind unitKind;
 }

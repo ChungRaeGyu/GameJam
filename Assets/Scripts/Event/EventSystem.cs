@@ -16,11 +16,24 @@ public class EventSystem : MonoBehaviour
     float timer;
     [SerializeField]
     float limittime = 7f;
+    //fight, pain, love, lonely
+    public int[][] eventRates = new int[][] {
+        new int[]{ 50, 30, 10, 10 }, //aggressive,
+        new int[]{ 20, 20, 50, 10 }, //curious,
+        new int[]{ 10,40,10,40},//cowardly,
+        new int[] {10,30,30,30},//friendly,
+        new int[] {40,40,10,10},//cynical,
+    }; 
+    [HideInInspector]
+    public int fightEventRate = 25;
+    [HideInInspector]
+    public int painEventRate = 25;
+    [HideInInspector]
+    public int loveEventRate = 25;
+    [HideInInspector]
+    public int lonelyEventRate = 25;
 
-    [SerializeField] int fightEventRate = 25;
-    [SerializeField] int painEventRate = 25;
-    [SerializeField] int loveEventRate = 25;
-
+    [HideInInspector]
     public bool isEvent = false; //event끝나면 false 만들어주기
 
     Unit unit;
@@ -44,6 +57,7 @@ public class EventSystem : MonoBehaviour
             EventTrigger();
         }
     }
+    
     private void EventTrigger()
     {
         int rand = Random.Range(0, 100);
@@ -75,7 +89,7 @@ public class EventSystem : MonoBehaviour
             TogetherEvent((int)EventType.Love);
 
         }
-        else
+        else if(rand < fightEventRate + painEventRate + loveEventRate + lonelyEventRate)
         {
             AloneEvent((int)EventType.Lonley);
             //lonley //혼자
@@ -138,5 +152,13 @@ public class EventSystem : MonoBehaviour
     {
         //Event에서 마지막에 이거 호출
         isEvent = false;
+    }
+
+    internal void SetRate()
+    {
+        fightEventRate = eventRates[(int)unit.unitSO.unitKind][(int)EventType.Fight];
+        painEventRate = eventRates[(int)unit.unitSO.unitKind][(int)EventType.Pain];
+        loveEventRate = eventRates[(int)unit.unitSO.unitKind][(int)EventType.Love];
+        lonelyEventRate = eventRates[(int)unit.unitSO.unitKind][(int)EventType.Lonley];
     }
 }

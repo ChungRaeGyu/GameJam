@@ -2417,6 +2417,7 @@ MonoBehaviour:
   rareRate: 5
   unitPrefab: {fileID: 8879799404224931853, guid: fa3e201dd15934e4f914febe7784a603, type: 3}
   units: []
+  RareUnits: []
 --- !u!1 &977346550
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,14 +2928,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f01c8bb80dfee43a18a3cfdb6dfe1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnSystem: {fileID: 838836487}
-  energySystem: {fileID: 30222687}
-  DNAManipulationPanel: {fileID: 1205261654}
+  goal: 3
   normalUnitsSO:
   - {fileID: 11400000, guid: 5974abc3551d08842bc99850b9b61eac, type: 2}
   - {fileID: 11400000, guid: 9837ade4ebb4772479dca9afe7a47534, type: 2}
   rareUnitsSO: []
+  spawnSystem: {fileID: 838836487}
+  energySystem: {fileID: 30222687}
   currentDNASlot: {fileID: 0}
+  DNAManipulationPanel: {fileID: 1205261654}
   choiceDNAScrollView: {fileID: 1417012722}
   spaceBarPanel: {fileID: 977346550}
   eventSystem: {fileID: 1873468117}
@@ -4001,6 +4003,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964484103}
   m_CullTransparentMesh: 1
+--- !u!1 &2131895287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2131895288}
+  - component: {fileID: 2131895289}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2131895288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131895287}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 131.66026, y: 449.4513, z: -5.6669445}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2131895289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131895287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acfdb98d841e524b845d4cc39ffe7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage1NormalSO: []
+  stage2NormalSO: []
+  stage1RareUnitSO: []
+  stage2RareUnitSO: []
+  stage: 1
 --- !u!1 &2138253271
 GameObject:
   m_ObjectHideFlags: 0
@@ -4083,6 +4134,7 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 2131895288}
   - {fileID: 33004587}
   - {fileID: 533621872}
   - {fileID: 455589979}
