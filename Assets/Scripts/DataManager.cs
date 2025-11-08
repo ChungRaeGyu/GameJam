@@ -28,6 +28,8 @@ public class DataManager : MonoBehaviour
     public RareUnitSO[] stage1RareUnitSO;
     public RareUnitSO[] stage2RareUnitSO;
 
+    public List<UnitSO> currentRareUnitSO;
+
     public int stage = 1;
 
     public UnitSO[] GetSO()

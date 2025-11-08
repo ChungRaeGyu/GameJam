@@ -20,7 +20,6 @@ public class LoveEventSystem : SpaceBarParent, ITargetable
         while (over)
         {
             yield return null;
-            speed *= speed;
             leftDNA.anchoredPosition += new Vector2(speed * Time.deltaTime, 0);
             rightDNA.anchoredPosition -= new Vector2(speed * Time.deltaTime, 0);
 

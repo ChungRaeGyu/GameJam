@@ -116,10 +116,10 @@ TextureImporter:
       name: DNA_0
       rect:
         serializedVersion: 2
-        x: 183
-        y: 114
-        width: 341
-        height: 550
+        x: 318
+        y: 70
+        width: 394
+        height: 574
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

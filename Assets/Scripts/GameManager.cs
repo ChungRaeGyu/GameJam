@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     public GameObject currentDNASlot;
     public Dictionary<GameObject,UnitSO> manipulationDNA = new Dictionary<GameObject, UnitSO>();
     [SerializeField] private GameObject DNAManipulationPanel;
+    [SerializeField] private GameObject DNAManipulationBackGround;
+
     [SerializeField] GameObject choiceDNAScrollView;
     
     [SerializeField] GameObject spaceBarPanel;
@@ -51,9 +53,9 @@ public class GameManager : MonoBehaviour
     public GameObject eventSystem;
 
     [SerializeField] GameObject testDescriptionPanel;
-    [SerializeField] TMP_Text testText;
+    [SerializeField] Text testText;
 
-    [SerializeField] Sprite uiSprite; //버튼의 기본 이미지
+    public Sprite uiSprite; //버튼의 기본 이미지
 
     public bool isPlaying = false;
 
@@ -62,7 +64,8 @@ public class GameManager : MonoBehaviour
     public float EventTimer = 2f;
 
     public GameObject winPanel;
- 
+
+    public GameObject bookPanel;
     public void ChoiceDNAScrollViewControl(GameObject obj = null)
     {
         choiceDNAScrollView.SetActive(!choiceDNAScrollView.activeSelf);
@@ -75,11 +78,14 @@ public class GameManager : MonoBehaviour
             currentDNASlot = null;
         }
     }
-
+    public void DNAManipulationPanelClose()
+    {
+        DNAManipulationPanel.SetActive(false);
+        DNAManipulationBackGround.SetActive(false);
+    }
     public void DNAManipulationPanelControl()
     {
         StartCoroutine(PressButton());
-
     }
     IEnumerator PressButton()
     {
@@ -88,9 +94,14 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         button[1].SetActive(false);
         button[0].SetActive(true);
-
-        DNAManipulationPanel.SetActive(!DNAManipulationPanel.activeSelf);
-        PlayingControl(!DNAManipulationPanel.activeSelf);
+        if (DNAManipulationBackGround.activeSelf)
+        {
+            SpaceBarPanelControl();
+            yield break;
+        }
+        DNAManipulationPanel.SetActive(true);
+        DNAManipulationBackGround.SetActive(true);
+        PlayingControl(false);
     }
     public void PlayingControl(bool bol)
     {
@@ -104,10 +115,6 @@ public class GameManager : MonoBehaviour
             if (energySystem.UseEnergy())
             {
                 spaceBarPanel.SetActive(!spaceBarPanel.activeSelf);
-                foreach (var t in manipulationDNA)
-                {
-                    t.Key.GetComponent<Image>().sprite = uiSprite;
-                }
             }
             else
             {
@@ -126,12 +133,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("텍스트 : " + text);
         testDescriptionPanel.SetActive(true);
         testText.text = text;
-        StartCoroutine(show());
     }
-    IEnumerator show()
+
+    public void CheckDescription()
     {
-        yield return new WaitForSecondsRealtime(1f);
         testDescriptionPanel.SetActive(false);
+
     }
     public void GameOver(int num)
     {
@@ -142,4 +149,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void BookControl()
+    {
+        bookPanel.SetActive(!bookPanel.activeSelf);
+    }
 }

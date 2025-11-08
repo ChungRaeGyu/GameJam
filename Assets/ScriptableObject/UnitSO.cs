@@ -15,4 +15,6 @@ public class UnitSO : ScriptableObject
     [HideInInspector]
     public kind unitKind;
     public GameObject prefab;
+    public string nametxt;
+    public string description;
 }
