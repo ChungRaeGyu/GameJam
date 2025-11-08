@@ -78,9 +78,13 @@ public class GameManager : MonoBehaviour
             currentDNASlot = null;
         }
     }
+    public void ChoiceDNAClose()
+    {
+        choiceDNAScrollView.SetActive(false);
+    }
     public void SpaceBarSystemClose()
     {
-        
+        spaceBarPanel.SetActive(false);
     }
     public void DNAManipulationPanelClose()
     {
