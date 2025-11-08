@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class SpawnSystem : MonoBehaviour
 {
-    int normalRate = 90;
-    public int rareRate = 10;
-
+    int normalRate = 80;
+    public int rareRate = 20;
+    public GameObject effectPrefab;
 
     public List<GameObject> units = new List<GameObject>();
     public List<GameObject> RareUnits = new List<GameObject>();
@@ -24,6 +24,7 @@ public class SpawnSystem : MonoBehaviour
             //Èñ±Í
             UnitSO unitSO = FindRareUnit(tempSO[0], tempSO[1]);
             GameObject temp = Instantiate(unitSO.prefab, transform.position, Quaternion.identity);
+            Instantiate(effectPrefab, transform.position, Quaternion.identity);
             Unit tempUnit = temp.GetComponent<Unit>();
             tempUnit.unitSO = unitSO;
             tempUnit.Init();

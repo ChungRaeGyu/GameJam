@@ -1,16 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RNABackGround : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Text rateText;
 
     // Update is called once per frame
     void Update()
     {
-        
+        rateText.text = $"돌연변이 확률 \n{GameManager.Instance.spawnSystem.rareRate}%";
     }
 }

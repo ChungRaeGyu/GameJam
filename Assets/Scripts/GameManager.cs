@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour
     public GameObject winPanel;
 
     public GameObject bookPanel;
+
+    public Text goalText;
     public void ChoiceDNAScrollViewControl(GameObject obj = null)
     {
         choiceDNAScrollView.SetActive(!choiceDNAScrollView.activeSelf);
@@ -160,6 +162,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver(int num)
     {
+        goalText.text = $"돌연변이 {num}/{goal}";
         if (num >= goal) 
         {
             PlayingControl(false);

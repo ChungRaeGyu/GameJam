@@ -15,7 +15,7 @@ MonoBehaviour:
   sprite: {fileID: -2771197010541241501, guid: 425bac8841e898b4ea72186f1aacb49c, type: 3}
   unitKind: 0
   prefab: {fileID: 548920970051374732, guid: dd6d341322d1b1847b50ea9b49bef65d, type: 3}
-  nametxt: 
-  description: 
+  nametxt: "\uD638\uB2E4\uC0AC\uC790"
+  description: "\uBAA8\uB974\uACA0\uB2E4~~"
   unitA: {fileID: 11400000, guid: 0f0efdd3d6393df4980a1568b0b27205, type: 2}
   unitB: {fileID: 11400000, guid: 25e5bb91f5d9a3149bb450770a050b56, type: 2}
