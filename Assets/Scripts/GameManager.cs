@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject choiceDNAScrollView;
     [SerializeField] GameObject spaceBarPanel;
 
+    [Header("EventSystem")]
+    public GameObject eventSystem;
 
     [SerializeField] GameObject testDescriptionPanel;
     [SerializeField] TMP_Text testText;
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
 
     public float EventTimer = 2f;
     
+
     public void ChoiceDNAScrollViewControl(GameObject obj = null)
     {
         choiceDNAScrollView.SetActive(!choiceDNAScrollView.activeSelf);
@@ -62,9 +65,13 @@ public class GameManager : MonoBehaviour
     public void DNAManipulationPanelControl()
     {
         DNAManipulationPanel.SetActive(!DNAManipulationPanel.activeSelf);
-        isPlaying  = !DNAManipulationPanel.activeSelf;
+        PlayingControl(!DNAManipulationPanel.activeSelf);
     }
+    public void PlayingControl(bool bol)
+    {
+        isPlaying = bol;
 
+    }
     public void SpaceBarPanelControl()
     {
         if (manipulationDNA.Count == 2)

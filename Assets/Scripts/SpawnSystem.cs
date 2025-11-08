@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class SpawnSystem : MonoBehaviour
 {
-    int normalRate = 50;
-    int rareRate = 5;
+    int normalRate = 90;
+    public int rareRate = 10;
 
     [SerializeField] GameObject unitPrefab;
 
@@ -38,11 +38,11 @@ public class SpawnSystem : MonoBehaviour
             tempUnit.Init();
             units.Add(temp);
         }
-        else
+/*        else
         {
             GameManager.Instance.ShowDescription("SpawnFail");
             //실패확률 나머지 
-        }
+        }*/
         GameManager.Instance.manipulationDNA.Clear();
     }
 

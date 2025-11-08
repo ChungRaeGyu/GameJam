@@ -49,46 +49,48 @@ public class EventSystem : MonoBehaviour
         int rand = Random.Range(0, 100);
         isEvent = true;
         Debug.Log("멈춤");
-        if (GameManager.Instance.spawnSystem.units.Count>=2)
+        if (rand < fightEventRate)
+        {
+            if (GameManager.Instance.spawnSystem.units.Count <= 1)
+            {
+                isEvent = false;
+                return;
+            }
+            //fight //달라붙기
             TogetherEvent((int)EventType.Fight);
+        }
+        else if (rand < fightEventRate + painEventRate)
+        {
+            //pain //혼자
+            AloneEvent((int)EventType.Pain);
+        }
+        else if (rand < fightEventRate + painEventRate + loveEventRate)
+        {
+            if (GameManager.Instance.spawnSystem.units.Count <= 1)
+            {
+                isEvent = false;
+                return;
+            }
+            //love //달라붙기
+            TogetherEvent((int)EventType.Love);
 
-        /*        if (rand < fightEventRate)
-                {
-                    if (GameManager.Instance.spawnSystem.units.Count <= 1)
-                        return;
-                    //fight //달라붙기
-                    TogetherEvent((int)EventType.Fight);
-                }
-                else if (rand < fightEventRate + painEventRate)
-                {
-                    //pain //혼자
-                    AloneEvent((int)EventType.Pain);
-                }
-                else if (rand < fightEventRate + painEventRate + loveEventRate)
-                {
-                    if (GameManager.Instance.spawnSystem.units.Count <= 1)
-                        return;
-                    //love //달라붙기
-                    TogetherEvent((int)EventType.Love);
-
-                }
-                else
-                {
-                    AloneEvent((int)EventType.Lonley);
-                    //lonley //혼자
-                }*/
+        }
+        else
+        {
+            AloneEvent((int)EventType.Lonley);
+            //lonley //혼자
+        }
     }
 
     private void AloneEvent(int type)
     {
         GameObject temp = Instantiate(events[type]);
-        temp.transform.position = new Vector2(transform.position.x, transform.position.y + 3);
+        temp.transform.position = new Vector2(transform.position.x, transform.position.y +1);
         temp.GetComponent<EventParent>().target1 = this.gameObject;
     }
 
     private void TogetherEvent(int type)
     {
-        int num;
         GameObject temp2;
         List<GameObject> availableUnits = new List<GameObject>();
         foreach (var t in GameManager.Instance.spawnSystem.units)
@@ -98,7 +100,11 @@ public class EventSystem : MonoBehaviour
                 availableUnits.Add(t);
             }
         }
-        if (availableUnits.Count == 0) return; 
+        if (availableUnits.Count == 0)
+        {
+            EventOver();
+            return;
+        }
         temp2 = availableUnits[Random.Range(0, availableUnits.Count)];
 
         StartCoroutine(MoveTogether(temp2, type));
@@ -125,10 +131,7 @@ public class EventSystem : MonoBehaviour
 
         Vector2 vector2 = (transform.position + temp2.transform.position) / 2;
         temp.transform.position = vector2;
-/*        //몇 초뒤에 다시 자기 할일 시작
-        yield return new WaitForSecondsRealtime(GameManager.Instance.EventTimer);
-        isEvent = false;
-        eventSystem.isEvent = false;*/
+        //타이머는 SpriteClickHandler에서 멈추고 재개
 
     }
     public void EventOver()

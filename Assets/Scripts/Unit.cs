@@ -45,7 +45,7 @@ public class Unit : MonoBehaviour
     public void Init()
     {
         spriteRenderer.sprite = unitSO.sprite;
-        GameManager.Instance.isPlaying = true;
+        GameManager.Instance.PlayingControl(true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

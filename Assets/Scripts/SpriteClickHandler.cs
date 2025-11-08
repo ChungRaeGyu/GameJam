@@ -19,8 +19,8 @@ public class SpriteClickHandler : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(2f);
         eventParent.target1.GetComponent<EventSystem>().EventOver();
-        eventParent.target2.GetComponent<EventSystem>().EventOver();
-
+        eventParent.target2?.GetComponent<EventSystem>().EventOver();
+        Destroy(gameObject);
     }
     private void Update()
     {
@@ -29,10 +29,10 @@ public class SpriteClickHandler : MonoBehaviour
             CheckClick(Input.mousePosition);
         }
 
-        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
-        {
-            CheckClick(Input.touches[0].position);
-        }
+        //if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+        //{
+        //    CheckClick(Input.touches[0].position);
+        //}
     }
 
     private void CheckClick(Vector2 screenPos)
@@ -55,8 +55,10 @@ public class SpriteClickHandler : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().color = Color.yellow;
         StopCoroutine(c);//코루틴 멈췄고 
-        //각종 이벤트를 실행하는 코드작성 줌을 하던가 패널을 열던가
-        //아마 줌 하고 패널도 열어야 할꺼같은데 ㅋㅋ
-        //그렇다 치고 
+        //줌시작
+        //열리는건 될듯?
+        GameObject temp = Instantiate(eventParent.panel,GameManager.Instance.eventSystem.transform);
+        temp.GetComponent<ITargetable>().SetTarget(new GameObject[] { eventParent.target1, eventParent.target2 },this.gameObject);
+        GameManager.Instance.PlayingControl(false);
     }
 }

@@ -1,29 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
-public class SpaceBarPanel : MonoBehaviour
+public class SpaceBarPanel : SpaceBarParent
 {
-    [SerializeField] private RectTransform leftDNA;
-    [SerializeField] private RectTransform rightDNA;
-    [SerializeField] private RectTransform line;
 
-    [SerializeField] private Vector2 originLeftDNA;
-    [SerializeField] private Vector2 originRightDNA;
-    [SerializeField] private float speed;
-
-    private bool over;
-    [SerializeField]private float failCount;
-    private void Awake()
+    protected override void OnEnable()
     {
-        originLeftDNA = leftDNA.anchoredPosition;
-        originRightDNA = rightDNA.anchoredPosition;
-    }
-    private void OnEnable()
-    {
-        Debug.Log("ONEnable");
-        Reset();
-        over = true;
-        failCount = 3;
+        base.OnEnable();
         StartCoroutine(MouseClick());
     }
     IEnumerator MouseClick(){
@@ -124,10 +107,4 @@ public class SpaceBarPanel : MonoBehaviour
             over = true;
         }
     }*/
-
-    private void Reset()
-    {
-        leftDNA.anchoredPosition = originLeftDNA;
-        rightDNA.anchoredPosition = originRightDNA;
-    }
 }
