@@ -91,13 +91,14 @@ public class GameManager : MonoBehaviour
 
     public void ShowDescription(string text)
     {
+        Debug.Log("≈ÿΩ∫∆Æ : " + text);
         testDescriptionPanel.SetActive(true);
         testText.text = text;
         StartCoroutine(show());
     }
     IEnumerator show()
     {
-        yield return new WaitForSecondsRealtime(0.3f);
+        yield return new WaitForSecondsRealtime(1f);
         testDescriptionPanel.SetActive(false);
     }
     private void Start()

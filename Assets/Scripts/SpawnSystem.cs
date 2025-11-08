@@ -40,7 +40,7 @@ public class SpawnSystem : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.ShowDescription("FAIL");
+            GameManager.Instance.ShowDescription("SpawnFail");
             //실패확률 나머지 
         }
         GameManager.Instance.manipulationDNA.Clear();

@@ -1,16 +1,10 @@
-using UnityEngine;
+ using UnityEngine;
 
 public class FightEvent : EventParent
 {
+    //일단 클릭이 되어야 한다. 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject panel;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

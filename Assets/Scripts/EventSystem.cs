@@ -106,12 +106,13 @@ public class EventSystem : MonoBehaviour
     }
     IEnumerator MoveTogether(GameObject temp2, int type)
     {
-        while (Vector2.Distance(transform.position, temp2.transform.position) > 15)
+        while (Vector2.Distance(transform.position, temp2.transform.position) > 1.5f)
         {
             gameObject.transform.position = Vector2.MoveTowards(transform.position, temp2.transform.position, speed * Time.deltaTime);
             temp2.transform.position = Vector2.MoveTowards(temp2.transform.position, gameObject.transform.position, speed * Time.deltaTime);
             yield return null;
         }
+        Debug.Log(Vector2.Distance(transform.position, temp2.transform.position));
         GameObject temp = Instantiate(events[type]);
         EventParent eventParent = temp.GetComponent<EventParent>();
 
@@ -124,13 +125,15 @@ public class EventSystem : MonoBehaviour
 
         Vector2 vector2 = (transform.position + temp2.transform.position) / 2;
         temp.transform.position = vector2;
+/*        //몇 초뒤에 다시 자기 할일 시작
         yield return new WaitForSecondsRealtime(GameManager.Instance.EventTimer);
         isEvent = false;
-        eventSystem.isEvent = false;
+        eventSystem.isEvent = false;*/
 
     }
     public void EventOver()
     {
+        //Event에서 마지막에 이거 호출
         isEvent = false;
     }
 }
