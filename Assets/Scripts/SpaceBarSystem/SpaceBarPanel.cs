@@ -54,17 +54,16 @@ public class SpaceBarPanel : SpaceBarParent
                 over = false;
 
                 GameManager.Instance.ShowDescription("Success");
+                yield return new WaitForSecondsRealtime(1f);
+                SoundManager.instance.SpawnSoundPlay();
                 GameManager.Instance.spawnSystem.Spawn();
                 //소환 
                 yield return new WaitForSecondsRealtime(1f);
+                StartCoroutine(End());
                 gameObject.SetActive(false);
                 GameManager.Instance.DNAManipulationPanelClose();
                 speed = 200;
 
-                foreach (var t in GameManager.Instance.manipulationDNA)
-                {
-                    t.Key.GetComponent<Image>().sprite = GameManager.Instance.uiSprite;
-                }
                 yield break;
             }
             if (failCount <= 0)
@@ -73,18 +72,28 @@ public class SpaceBarPanel : SpaceBarParent
                 GameManager.Instance.ShowDescription("Fail");
                 Debug.Log("Game Over");
                 yield return new WaitForSecondsRealtime(1f);
+                StartCoroutine(End());
                 gameObject.SetActive(false);
                 GameManager.Instance.DNAManipulationPanelClose();
                 over = false;
                 speed = 200;
-                foreach (var t in GameManager.Instance.manipulationDNA)
-                {
-                    t.Key.GetComponent<Image>().sprite = GameManager.Instance.uiSprite;
-                }
             }
         }
     }
+    IEnumerator End()
+    {
+        yield return null;
+        foreach (var t in GameManager.Instance.manipulationDNA)
+        {
+            GameObject temp = t.Key.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject; ;
+            Image image = temp.GetComponentInChildren<Image>();
+            image.sprite = GameManager.Instance.uiSprite;
+            image.color = new Color(1, 1, 1, 0);
+        }
 
+        //다 원상복구 시키기 
+        //AnimatorOver 실행
+    }
 /*    private void Update()
     {
         //나중에 코루틴으로 쓰는 편이 좋겠다.

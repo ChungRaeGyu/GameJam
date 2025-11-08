@@ -29,6 +29,7 @@ public class SpawnSystem : MonoBehaviour
             tempUnit.Init();
             units.Add(temp);
             RareUnits.Add(temp);
+            DataManager.Instance.currentRareUnitSO.Add(unitSO);
             GameManager.Instance.GameOver(RareUnits.Count);
         }
         else if (rand < rareRate+normalRate)

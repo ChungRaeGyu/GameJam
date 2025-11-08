@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     public GameObject eventSystem;
 
     [SerializeField] GameObject testDescriptionPanel;
-    [SerializeField] TMP_Text testText;
+    [SerializeField] Text testText;
 
     public Sprite uiSprite; //버튼의 기본 이미지
 
@@ -133,12 +133,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("텍스트 : " + text);
         testDescriptionPanel.SetActive(true);
         testText.text = text;
-        StartCoroutine(show());
     }
-    IEnumerator show()
+
+    public void CheckDescription()
     {
-        yield return new WaitForSecondsRealtime(1f);
         testDescriptionPanel.SetActive(false);
+
     }
     public void GameOver(int num)
     {
