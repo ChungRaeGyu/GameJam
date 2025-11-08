@@ -93,7 +93,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         button[1].SetActive(false);
         button[0].SetActive(true);
-
         if (DNAManipulationBackGround.activeSelf)
         {
             SpaceBarPanelControl();
