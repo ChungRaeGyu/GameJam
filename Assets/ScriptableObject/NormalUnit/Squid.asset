@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7053bb226666346b97aa1d274298b5, type: 3}
   m_Name: Squid
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: -2558403878011392674, guid: 37a5a926f53041142ad5be9121704eb2, type: 3}
   unitKind: 0
+  prefab: {fileID: 1256075435375770587, guid: 8e22aa36d5a7684438cd10a6f5115424, type: 3}

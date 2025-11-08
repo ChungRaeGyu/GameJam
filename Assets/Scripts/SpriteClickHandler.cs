@@ -19,7 +19,8 @@ public class SpriteClickHandler : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(2f);
         eventParent.target1.GetComponent<EventSystem>().EventOver();
-        eventParent.target2?.GetComponent<EventSystem>().EventOver();
+        if(eventParent.target2!=null)
+            eventParent.target2.GetComponent<EventSystem>().EventOver();
         Destroy(gameObject);
     }
     private void Update()

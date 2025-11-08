@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7053bb226666346b97aa1d274298b5, type: 3}
   m_Name: Pig
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: dc933ee2a6e0fa049a7702ef906b3f16, type: 3}
+  sprite: {fileID: -9122695006515159614, guid: eb99921e938d64f4dbbb51de4d35697c, type: 3}
   unitKind: 0
+  prefab: {fileID: 2947600363224933715, guid: 3bfca638bdf6e3b47855f5ee799f635f, type: 3}

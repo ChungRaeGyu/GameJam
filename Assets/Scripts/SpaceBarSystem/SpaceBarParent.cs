@@ -14,7 +14,8 @@ public class SpaceBarParent : MonoBehaviour,ITargetable
     [SerializeField] protected float speed;
 
     protected bool over;
-    [SerializeField] protected float failCount;
+    [SerializeField] protected int failCount;
+    [SerializeField] protected int successCount;
 
     protected GameObject[] targetObjs;
     protected GameObject eventIcon;
@@ -34,6 +35,7 @@ public class SpaceBarParent : MonoBehaviour,ITargetable
         Reset();
         over = true;
         failCount = 3;
+        successCount = 0;
     }
     protected void Reset()
     {

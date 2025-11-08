@@ -14,4 +14,5 @@ public class UnitSO : ScriptableObject
     public Sprite sprite;
     [HideInInspector]
     public kind unitKind;
+    public GameObject prefab;
 }

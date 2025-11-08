@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7053bb226666346b97aa1d274298b5, type: 3}
   m_Name: Bird
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 8b586d25630b4344bae8c5c77a0fc25e, type: 3}
+  sprite: {fileID: -3551287784963028691, guid: 16d8aaee02a202e499fe0bcbc506d621, type: 3}
   unitKind: 0
+  prefab: {fileID: 3447344572639376298, guid: a079e66b1741cdf4eb23fc82bd2348e2, type: 3}

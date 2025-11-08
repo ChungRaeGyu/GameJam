@@ -25,7 +25,7 @@ public class FightEventSystem : SpaceBarParent, ITargetable
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (line.anchoredPosition.x - 5 <= rightDNA.anchoredPosition.x && rightDNA.anchoredPosition.x <= line.anchoredPosition.x + 20)
+                if (line.anchoredPosition.x - 5 <= rightDNA.anchoredPosition.x && rightDNA.anchoredPosition.x <= line.anchoredPosition.x + 60)
                 {
                     over = false;
                     //성공 알림 해주고 패널 조금있다가 닫기

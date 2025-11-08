@@ -6,7 +6,6 @@ public class SpawnSystem : MonoBehaviour
     int normalRate = 90;
     public int rareRate = 10;
 
-    [SerializeField] GameObject unitPrefab;
 
     public List<GameObject> units = new List<GameObject>();
     public List<GameObject> RareUnits = new List<GameObject>();
@@ -17,34 +16,45 @@ public class SpawnSystem : MonoBehaviour
             rareRate += 10;
         }
         int rand = Random.Range(0, 100);
-        if (rand < rareRate)
+
+        UnitSO[] tempSO = KeyToArray();
+
+        if (rand < rareRate/*&& FindRareUnit(tempSO[0], tempSO[1])!=null*/)
         {
             //Èñ±Í
-            GameObject temp = Instantiate(unitPrefab, transform.position, Quaternion.identity);
-            UnitSO[] tempSO = KeyToArray();
+            UnitSO unitSO = FindRareUnit(tempSO[0], tempSO[1]);
+            GameObject temp = Instantiate(unitSO.prefab, transform.position, Quaternion.identity);
             Unit tempUnit = temp.GetComponent<Unit>();
-            tempUnit.unitSO = FindRareUnit(tempSO[0], tempSO[1]);
+            tempUnit.unitSO = unitSO;
             tempUnit.Init();
             units.Add(temp);
             RareUnits.Add(temp);
+            GameManager.Instance.GameOver(RareUnits.Count);
         }
         else if (rand < rareRate+normalRate)
         {
-            //Èñ±Í°¡ ¾Æ´Ò È®·ü
-            GameObject temp = Instantiate(unitPrefab, transform.position, Quaternion.identity);
             int random = Random.Range(0, 2);
-            UnitSO[] tempSO = KeyToArray();
-
+            UnitSO so = tempSO[random];
+            GameObject temp = Instantiate(so.prefab, transform.position, Quaternion.identity);
             Unit tempUnit = temp.GetComponent<Unit>();
             tempUnit.unitSO = tempSO[random];
             tempUnit.Init();
             units.Add(temp);
+            /*            //Èñ±Í°¡ ¾Æ´Ò È®·ü
+                        GameObject temp = Instantiate(unitPrefab, transform.position, Quaternion.identity);
+                        int random = Random.Range(0, 2);
+                        UnitSO[] tempSO = KeyToArray();
+
+                        Unit tempUnit = temp.GetComponent<Unit>();
+                        tempUnit.unitSO = tempSO[random];
+                        tempUnit.Init();
+                        units.Add(temp);*/
         }
-/*        else
-        {
-            GameManager.Instance.ShowDescription("SpawnFail");
-            //½ÇÆÐÈ®·ü ³ª¸ÓÁö 
-        }*/
+        /*        else
+                {
+                    GameManager.Instance.ShowDescription("SpawnFail");
+                    //½ÇÆÐÈ®·ü ³ª¸ÓÁö 
+                }*/
         GameManager.Instance.manipulationDNA.Clear();
     }
 

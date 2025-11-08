@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour
     public int goal;
 
     [HideInInspector]
-    public UnitSO[] normalUnitsSO;
+    public UnitSO[] normalUnitsSO = new UnitSO[0];
     [HideInInspector]
-    public RareUnitSO[] rareUnitsSO;
+    public RareUnitSO[] rareUnitsSO = new RareUnitSO[0];
+
+    public GameObject[] button;
     private void Awake()
     {
         if(Instance == null)
@@ -24,6 +26,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+    }
+    private void Start()
+    {
         normalUnitsSO = DataManager.Instance.GetSO();
         rareUnitsSO = DataManager.Instance.GetRareSO();
         goal = DataManager.Instance.GetGoal();
@@ -55,6 +61,7 @@ public class GameManager : MonoBehaviour
 
     public float EventTimer = 2f;
 
+    public GameObject winPanel;
  
     public void ChoiceDNAScrollViewControl(GameObject obj = null)
     {
@@ -71,6 +78,17 @@ public class GameManager : MonoBehaviour
 
     public void DNAManipulationPanelControl()
     {
+        StartCoroutine(PressButton());
+
+    }
+    IEnumerator PressButton()
+    {
+        button[0].SetActive(false);
+        button[1].SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        button[1].SetActive(false);
+        button[0].SetActive(true);
+
         DNAManipulationPanel.SetActive(!DNAManipulationPanel.activeSelf);
         PlayingControl(!DNAManipulationPanel.activeSelf);
     }
@@ -120,15 +138,8 @@ public class GameManager : MonoBehaviour
         if (num >= goal) 
         {
             PlayingControl(false);
-            StartCoroutine(GameIsOver());
-            
+            winPanel.SetActive(true);
         }
     }
 
-    IEnumerator GameIsOver()
-    {
-        ShowDescription("You Win!");
-        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
-        SceneManager.LoadScene("CutScene");
-    }
 }

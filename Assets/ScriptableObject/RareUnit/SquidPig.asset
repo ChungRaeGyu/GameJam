@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd37b653ae7aec478fc4ccf375b24ac, type: 3}
   m_Name: SquidPig
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: -1743572805318761422, guid: bcda9c249faf07d4ab387bfa79feee19, type: 3}
   unitKind: 0
+  prefab: {fileID: 5651810881293926635, guid: 6cbb6a4251790714494e9f72075efc5e, type: 3}
   unitA: {fileID: 11400000, guid: b256242b47ef7da48952ea567e655c33, type: 2}
   unitB: {fileID: 11400000, guid: 9837ade4ebb4772479dca9afe7a47534, type: 2}

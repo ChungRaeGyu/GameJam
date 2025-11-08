@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd37b653ae7aec478fc4ccf375b24ac, type: 3}
   m_Name: BirdTiger
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 6252123084098617097, guid: 42b22fc1366e3fb449b30eed51ba73fc, type: 3}
   unitKind: 0
+  prefab: {fileID: 5229195855818647098, guid: 6f22d16148bbd1148b728cf01f40a062, type: 3}
   unitA: {fileID: 11400000, guid: 5974abc3551d08842bc99850b9b61eac, type: 2}
   unitB: {fileID: 11400000, guid: 0f0efdd3d6393df4980a1568b0b27205, type: 2}

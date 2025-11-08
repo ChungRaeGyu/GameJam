@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dd37b653ae7aec478fc4ccf375b24ac, type: 3}
-  m_Name: BirdPig
+  m_Name: PigBird
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: -3460186673810006035, guid: 3aeea98dbb22868489a9594e21e1ced0, type: 3}
   unitKind: 0
+  prefab: {fileID: 2660891820081928397, guid: 1738f297e9cb4704a9e51e29efeee211, type: 3}
   unitA: {fileID: 11400000, guid: 5974abc3551d08842bc99850b9b61eac, type: 2}
   unitB: {fileID: 11400000, guid: 9837ade4ebb4772479dca9afe7a47534, type: 2}

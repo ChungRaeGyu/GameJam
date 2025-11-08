@@ -19,19 +19,16 @@ public class SpaceBarPanel : SpaceBarParent
 
             if(Input.GetMouseButtonDown(0))
             {
-                if (line.anchoredPosition.x - 5 <= rightDNA.anchoredPosition.x && rightDNA.anchoredPosition.x <= line.anchoredPosition.x + 20)
+                if (line.anchoredPosition.x - 5 <= rightDNA.anchoredPosition.x && rightDNA.anchoredPosition.x <= line.anchoredPosition.x + 60)
                 {
-                    over = false;
                     //성공 알림 해주고 패널 조금있다가 닫기
                     //여기서 확률 조정해주기
-                    Debug.Log("Success");
-                    GameManager.Instance.ShowDescription("Success");
-                    GameManager.Instance.spawnSystem.Spawn();
-                    //소환 
-                    yield return new WaitForSecondsRealtime(1f);
-                    gameObject.SetActive(false);
-                    GameManager.Instance.DNAManipulationPanelControl();
-                    yield break;
+                    successCount++;
+                    Debug.Log("Success" + successCount);
+                    speed += 100;
+                    Reset();
+                    //이펙트 강화 성공 실패 이펙트 넣어주기 
+
                 }
                 else
                 {
@@ -51,7 +48,19 @@ public class SpaceBarPanel : SpaceBarParent
                 yield return null;
             }
 
+            if (successCount >= 3)
+            {
+                over = false;
 
+                GameManager.Instance.ShowDescription("Success");
+                GameManager.Instance.spawnSystem.Spawn();
+                //소환 
+                yield return new WaitForSecondsRealtime(1f);
+                gameObject.SetActive(false);
+                GameManager.Instance.DNAManipulationPanelControl();
+                speed = 200;
+                yield break;
+            }
             if (failCount <= 0)
             {
                 //완전 실패 패널 닫아버리기
@@ -61,6 +70,7 @@ public class SpaceBarPanel : SpaceBarParent
                 gameObject.SetActive(false);
                 GameManager.Instance.DNAManipulationPanelControl();
                 over = false;
+                speed = 200;
             }
         }
     }

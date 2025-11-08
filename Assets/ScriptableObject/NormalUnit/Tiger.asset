@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7053bb226666346b97aa1d274298b5, type: 3}
   m_Name: Tiger
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 3225629950540185153, guid: 79afd3cb3f3b1bd4491a0c1375469975, type: 3}
   unitKind: 0
+  prefab: {fileID: 9035945782492012737, guid: 9ae369f6072dc584b9d20e826942bc08, type: 3}

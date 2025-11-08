@@ -4,7 +4,6 @@ public class Unit : MonoBehaviour
 {
     //[HideInInspector]
     public UnitSO unitSO;
-    private SpriteRenderer spriteRenderer;
     
     [SerializeField] private float speed = 5f;
     [SerializeField] private float limittime = 5f;
@@ -14,7 +13,6 @@ public class Unit : MonoBehaviour
     private EventSystem eventSystem;
     void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         eventSystem = GetComponent<EventSystem>();
     }
     private void Start()
@@ -38,13 +36,16 @@ public class Unit : MonoBehaviour
             {
                 moveDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
                 timer = 0;
-                limittime = Random.Range(1, 4);
+                limittime = Random.Range(1, 5);
+                if (limittime == 4)
+                {
+                    moveDirection = Vector2.zero;   
+                }
             }
         }
     }
     public void Init()
     {
-        spriteRenderer.sprite = unitSO.sprite;
         //여기서 성격을 정해주자
         unitSO.unitKind = (kind)Random.Range(0, (int)kind.Count);
         //성격에 따른 EventRate 조정

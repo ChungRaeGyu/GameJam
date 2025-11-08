@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd37b653ae7aec478fc4ccf375b24ac, type: 3}
   m_Name: BirdSquid
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: -1195407272994282951, guid: c87771d305f3c2248a62327495e95a96, type: 3}
   unitKind: 0
+  prefab: {fileID: 5188222435445824872, guid: eba0e42b599b8cf419fb29ad004b193f, type: 3}
   unitA: {fileID: 11400000, guid: 5974abc3551d08842bc99850b9b61eac, type: 2}
   unitB: {fileID: 11400000, guid: b256242b47ef7da48952ea567e655c33, type: 2}
