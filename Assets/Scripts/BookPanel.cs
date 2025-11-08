@@ -23,21 +23,24 @@ public class BookPanel : MonoBehaviour
         image.sprite = unitSO.sprite;
     }
     //애니메이션 중간에 넣어주기 애니메이션 이벤트
-    private void Prev()
+    public void Prev()
     {
         if (num > 0)
         {
             num--;
+            Set(DataManager.Instance.currentRareUnitSO[num]);
         }
-        Set(DataManager.Instance.currentRareUnitSO[num]);
+       
     }
-    private void Next()
+    public void Next()
     {
+        
         if(num< DataManager.Instance.currentRareUnitSO.Count-1)
         {
             num++;
+            Set(DataManager.Instance.currentRareUnitSO[num]);
         }
-        Set(DataManager.Instance.currentRareUnitSO[num]);
+        
 
     }
 }

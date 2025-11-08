@@ -78,8 +78,22 @@ public class GameManager : MonoBehaviour
             currentDNASlot = null;
         }
     }
+    public void SpaceBarSystemClose()
+    {
+        
+    }
     public void DNAManipulationPanelClose()
     {
+        //DNA 조작 패널 닫기
+        foreach (var t in manipulationDNA)
+        {
+            Debug.Log(t.Key.name + " t이름");
+            t.Key.GetComponent<Button>().enabled = true;
+            Image image = t.Key.GetComponent<RNAChange>().unitImage;
+            image.sprite = uiSprite;
+            image.color = new Color(1, 1, 1, 0);
+        }
+        manipulationDNA.Clear();
         DNAManipulationPanel.SetActive(false);
         DNAManipulationBackGround.SetActive(false);
     }

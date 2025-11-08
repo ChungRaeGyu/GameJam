@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7053bb226666346b97aa1d274298b5, type: 3}
   m_Name: SeaLion
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: -6201682123984425242, guid: e0bde1ab0d990784f88e8a3bf2369858, type: 3}
   unitKind: 0
+  prefab: {fileID: 5095173607364534622, guid: 788b49fa72e1d3e4f8542371da0327bb, type: 3}
+  nametxt: 
+  description: 

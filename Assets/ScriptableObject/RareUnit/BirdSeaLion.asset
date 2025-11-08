@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd37b653ae7aec478fc4ccf375b24ac, type: 3}
   m_Name: BirdSeaLion
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: -524815038871150464, guid: 29d90a16c7db08c47b3cca6327597589, type: 3}
   unitKind: 0
+  prefab: {fileID: 4572550813355857209, guid: 2d8405684aeefab47bf07e966ade4254, type: 3}
+  nametxt: 
+  description: 
   unitA: {fileID: 11400000, guid: 5974abc3551d08842bc99850b9b61eac, type: 2}
   unitB: {fileID: 11400000, guid: 25e5bb91f5d9a3149bb450770a050b56, type: 2}
