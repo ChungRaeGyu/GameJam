@@ -15,5 +15,8 @@ MonoBehaviour:
   sprite: {fileID: -1743572805318761422, guid: bcda9c249faf07d4ab387bfa79feee19, type: 3}
   unitKind: 0
   prefab: {fileID: 5651810881293926635, guid: 6cbb6a4251790714494e9f72075efc5e, type: 3}
+  nametxt: "\uB3FC\uC9D5"
+  description: "\uC544\uBB34\uB798\uB3C4 \uBC14\uB2E4\uC5D0\uC11C \uD3EC\uC2DD\uC744
+    \uD55C \uBAA8\uC591\uC774\uB2E4."
   unitA: {fileID: 11400000, guid: b256242b47ef7da48952ea567e655c33, type: 2}
   unitB: {fileID: 11400000, guid: 9837ade4ebb4772479dca9afe7a47534, type: 2}

@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   unitKind: 0
+  prefab: {fileID: 0}
+  nametxt: "\uD638\uB791\uC0AC\uC790"
+  description: "\uD638\uB791\uC774\uB3C4 \uC0AC\uC790\uB3C4 \uC544\uB2CC \uCE5C"
   unitA: {fileID: 11400000, guid: 0f0efdd3d6393df4980a1568b0b27205, type: 2}
   unitB: {fileID: 11400000, guid: 25e5bb91f5d9a3149bb450770a050b56, type: 2}
