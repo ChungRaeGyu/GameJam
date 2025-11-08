@@ -8,5 +8,6 @@ public class RareUnitSO : UnitSO
 {
     public UnitSO unitA;
     public UnitSO unitB;
-
+    public string name;
+    public string description;
 }

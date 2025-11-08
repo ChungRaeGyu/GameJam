@@ -64,7 +64,8 @@ public class GameManager : MonoBehaviour
     public float EventTimer = 2f;
 
     public GameObject winPanel;
- 
+
+    public GameObject bookPanel;
     public void ChoiceDNAScrollViewControl(GameObject obj = null)
     {
         choiceDNAScrollView.SetActive(!choiceDNAScrollView.activeSelf);
@@ -148,4 +149,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void BookControl()
+    {
+        bookPanel.SetActive(!bookPanel.activeSelf);
+    }
 }
