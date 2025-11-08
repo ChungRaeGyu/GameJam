@@ -10,13 +10,13 @@ public class RNAChange : MonoBehaviour
 
     public Image[] target;
     public Image image;
+    public Image unitImage;
     public RectTransform parent;
     public Vector2 origin;
 
     public Animator anim;
     private void Awake()
     {
-        anim = GetComponentInParent<Animator>();
         origin = parent.anchoredPosition;
 
     }

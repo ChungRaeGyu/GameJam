@@ -32,7 +32,7 @@ public class SpawnSystem : MonoBehaviour
             DataManager.Instance.currentRareUnitSO.Add(unitSO);
             GameManager.Instance.GameOver(RareUnits.Count);
         }
-        else if (rand < rareRate+normalRate)
+        else if (rand < rareRate + normalRate)
         {
             int random = Random.Range(0, 2);
             UnitSO so = tempSO[random];
@@ -56,9 +56,7 @@ public class SpawnSystem : MonoBehaviour
                     GameManager.Instance.ShowDescription("SpawnFail");
                     //실패확률 나머지 
                 }*/
-        GameManager.Instance.manipulationDNA.Clear();
     }
-
     private UnitSO[] KeyToArray()
     {
         List<UnitSO> tem = new List<UnitSO>();

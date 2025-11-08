@@ -58,11 +58,11 @@ public class SpaceBarPanel : SpaceBarParent
                 SoundManager.instance.SpawnSoundPlay();
                 GameManager.Instance.spawnSystem.Spawn();
                 //소환 
+                End();
+                speed = 200;
                 yield return new WaitForSecondsRealtime(1f);
-                StartCoroutine(End());
                 gameObject.SetActive(false);
                 GameManager.Instance.DNAManipulationPanelClose();
-                speed = 200;
 
                 yield break;
             }
@@ -71,69 +71,72 @@ public class SpaceBarPanel : SpaceBarParent
                 //완전 실패 패널 닫아버리기
                 GameManager.Instance.ShowDescription("Fail");
                 Debug.Log("Game Over");
-                yield return new WaitForSecondsRealtime(1f);
-                StartCoroutine(End());
-                gameObject.SetActive(false);
-                GameManager.Instance.DNAManipulationPanelClose();
+                End();
                 over = false;
                 speed = 200;
+                yield return new WaitForSecondsRealtime(1f);
+                gameObject.SetActive(false);
+                GameManager.Instance.DNAManipulationPanelClose();
             }
         }
     }
-    IEnumerator End()
+    private void End()
     {
-        yield return null;
+        Debug.Log("ENd");
         foreach (var t in GameManager.Instance.manipulationDNA)
         {
-            GameObject temp = t.Key.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject; ;
-            Image image = temp.GetComponentInChildren<Image>();
+            Debug.Log(t.Key.name + " t이름");
+            t.Key.GetComponent<Button>().enabled = true;
+            Image image = t.Key.GetComponent<RNAChange>().unitImage;
             image.sprite = GameManager.Instance.uiSprite;
             image.color = new Color(1, 1, 1, 0);
         }
+        GameManager.Instance.manipulationDNA.Clear();
+
 
         //다 원상복구 시키기 
         //AnimatorOver 실행
     }
-/*    private void Update()
-    {
-        //나중에 코루틴으로 쓰는 편이 좋겠다.
-        if (over) return;
-        leftDNA.anchoredPosition += new Vector2(speed * Time.deltaTime, 0);
-        rightDNA.anchoredPosition -= new Vector2(speed * Time.deltaTime, 0);
-        if (rightDNA.anchoredPosition.x < line.anchoredPosition.x - 5) 
+    /*    private void Update()
         {
-            failCount--;
-            //실패 알림 해주기
-            Debug.Log("Fail " + failCount);
-            Reset();
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (line.anchoredPosition.x - 5 <= rightDNA.anchoredPosition.x && rightDNA.anchoredPosition.x <= line.anchoredPosition.x +5)
-            {
-                //성공 알림 해주고 패널 조금있다가 닫기
-                //여기서 확률 조정해주기
-                Debug.Log("Success");
-                GameManager.Instance.ShowDescription("Success");
-                //소환 
-                over = true;
-            }
-            else
+            //나중에 코루틴으로 쓰는 편이 좋겠다.
+            if (over) return;
+            leftDNA.anchoredPosition += new Vector2(speed * Time.deltaTime, 0);
+            rightDNA.anchoredPosition -= new Vector2(speed * Time.deltaTime, 0);
+            if (rightDNA.anchoredPosition.x < line.anchoredPosition.x - 5) 
             {
                 failCount--;
                 //실패 알림 해주기
-                Debug.Log($"DNA : {rightDNA.anchoredPosition.x} , Line : {line.anchoredPosition}");
                 Debug.Log("Fail " + failCount);
                 Reset();
             }
-        }
-        if (failCount <= 0)
-        {
-            //완전 실패 패널 닫아버리기
-            GameManager.Instance.ShowDescription("Fail");
-            Debug.Log("Game Over");
-            over = true;
-        }
-    }*/
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (line.anchoredPosition.x - 5 <= rightDNA.anchoredPosition.x && rightDNA.anchoredPosition.x <= line.anchoredPosition.x +5)
+                {
+                    //성공 알림 해주고 패널 조금있다가 닫기
+                    //여기서 확률 조정해주기
+                    Debug.Log("Success");
+                    GameManager.Instance.ShowDescription("Success");
+                    //소환 
+                    over = true;
+                }
+                else
+                {
+                    failCount--;
+                    //실패 알림 해주기
+                    Debug.Log($"DNA : {rightDNA.anchoredPosition.x} , Line : {line.anchoredPosition}");
+                    Debug.Log("Fail " + failCount);
+                    Reset();
+                }
+            }
+            if (failCount <= 0)
+            {
+                //완전 실패 패널 닫아버리기
+                GameManager.Instance.ShowDescription("Fail");
+                Debug.Log("Game Over");
+                over = true;
+            }
+        }*/
 }
