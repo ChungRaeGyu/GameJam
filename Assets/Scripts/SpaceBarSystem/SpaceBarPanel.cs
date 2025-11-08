@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpaceBarPanel : SpaceBarParent
 {
@@ -57,8 +58,13 @@ public class SpaceBarPanel : SpaceBarParent
                 //º“»Ø 
                 yield return new WaitForSecondsRealtime(1f);
                 gameObject.SetActive(false);
-                GameManager.Instance.DNAManipulationPanelControl();
+                GameManager.Instance.DNAManipulationPanelClose();
                 speed = 200;
+
+                foreach (var t in GameManager.Instance.manipulationDNA)
+                {
+                    t.Key.GetComponent<Image>().sprite = GameManager.Instance.uiSprite;
+                }
                 yield break;
             }
             if (failCount <= 0)
@@ -68,9 +74,13 @@ public class SpaceBarPanel : SpaceBarParent
                 Debug.Log("Game Over");
                 yield return new WaitForSecondsRealtime(1f);
                 gameObject.SetActive(false);
-                GameManager.Instance.DNAManipulationPanelControl();
+                GameManager.Instance.DNAManipulationPanelClose();
                 over = false;
                 speed = 200;
+                foreach (var t in GameManager.Instance.manipulationDNA)
+                {
+                    t.Key.GetComponent<Image>().sprite = GameManager.Instance.uiSprite;
+                }
             }
         }
     }

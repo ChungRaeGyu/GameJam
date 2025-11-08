@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     public GameObject currentDNASlot;
     public Dictionary<GameObject,UnitSO> manipulationDNA = new Dictionary<GameObject, UnitSO>();
     [SerializeField] private GameObject DNAManipulationPanel;
+    [SerializeField] private GameObject DNAManipulationBackGround;
+
     [SerializeField] GameObject choiceDNAScrollView;
     
     [SerializeField] GameObject spaceBarPanel;
@@ -53,7 +55,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject testDescriptionPanel;
     [SerializeField] TMP_Text testText;
 
-    [SerializeField] Sprite uiSprite; //버튼의 기본 이미지
+    public Sprite uiSprite; //버튼의 기본 이미지
 
     public bool isPlaying = false;
 
@@ -75,11 +77,14 @@ public class GameManager : MonoBehaviour
             currentDNASlot = null;
         }
     }
-
+    public void DNAManipulationPanelClose()
+    {
+        DNAManipulationPanel.SetActive(false);
+        DNAManipulationBackGround.SetActive(false);
+    }
     public void DNAManipulationPanelControl()
     {
         StartCoroutine(PressButton());
-
     }
     IEnumerator PressButton()
     {
@@ -89,8 +94,14 @@ public class GameManager : MonoBehaviour
         button[1].SetActive(false);
         button[0].SetActive(true);
 
-        DNAManipulationPanel.SetActive(!DNAManipulationPanel.activeSelf);
-        PlayingControl(!DNAManipulationPanel.activeSelf);
+        if (DNAManipulationBackGround.activeSelf)
+        {
+            SpaceBarPanelControl();
+            yield break;
+        }
+        DNAManipulationPanel.SetActive(true);
+        DNAManipulationBackGround.SetActive(true);
+        PlayingControl(false);
     }
     public void PlayingControl(bool bol)
     {
@@ -104,10 +115,6 @@ public class GameManager : MonoBehaviour
             if (energySystem.UseEnergy())
             {
                 spaceBarPanel.SetActive(!spaceBarPanel.activeSelf);
-                foreach (var t in manipulationDNA)
-                {
-                    t.Key.GetComponent<Image>().sprite = uiSprite;
-                }
             }
             else
             {

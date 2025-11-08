@@ -18,7 +18,10 @@ public class UnitCard : MonoBehaviour
     private void ChoiceDNA()
     {
         GameManager.Instance.currentDNASlot.GetComponent<Image>().sprite = unitso.sprite;
-        if(GameManager.Instance.manipulationDNA.ContainsKey(GameManager.Instance.currentDNASlot))
+        GameManager.Instance.currentDNASlot.GetComponentInParent<Animator>().SetTrigger("Start");
+        GameManager.Instance.currentDNASlot.GetComponent<Button>().enabled = false;
+
+        if (GameManager.Instance.manipulationDNA.ContainsKey(GameManager.Instance.currentDNASlot))
         {
             GameManager.Instance.manipulationDNA[GameManager.Instance.currentDNASlot] = unitso;
         }
@@ -27,7 +30,7 @@ public class UnitCard : MonoBehaviour
             GameManager.Instance.manipulationDNA.Add(GameManager.Instance.currentDNASlot, unitso);
         }
         GameManager.Instance.ChoiceDNAScrollViewControl();
-   
+        
     }
 
     
