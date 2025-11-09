@@ -4023,9 +4023,9 @@ MonoBehaviour:
   speed: 200
   failCount: 0
   successCount: 0
-  O: {fileID: 0}
-  X: {fileID: 0}
-  parent: {fileID: 0}
+  O: {fileID: 8223507135751432040, guid: 15803752e07a99b418a8d262fde64c38, type: 3}
+  X: {fileID: 7805213912920731780, guid: 190a0e492e04be446a2b9edd29926297, type: 3}
+  parent: {fileID: 1240752755}
   objs: []
 --- !u!1 &987470825
 GameObject:
