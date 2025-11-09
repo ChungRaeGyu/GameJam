@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver(int num)
     {
-        goalText.text = $"돌연변이 {num}/{goal}";
+        goalText.text = $"{num}/{goal}";
         if (num >= goal) 
         {
             PlayingControl(false);

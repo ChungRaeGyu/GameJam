@@ -60,7 +60,6 @@ public class SpaceBarPanel : SpaceBarParent
                 //º“»Ø 
                 End();
                 speed = 200;
-                yield return new WaitForSecondsRealtime(1f);
                 gameObject.SetActive(false);
                 GameManager.Instance.DNAManipulationPanelClose();
 
@@ -74,7 +73,6 @@ public class SpaceBarPanel : SpaceBarParent
                 End();
                 over = false;
                 speed = 200;
-                yield return new WaitForSecondsRealtime(1f);
                 gameObject.SetActive(false);
                 GameManager.Instance.DNAManipulationPanelClose();
             }

@@ -10,7 +10,7 @@ public class DestorySelf : MonoBehaviour
     }
     IEnumerator Remove()
     {
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(2);
         Destroy(gameObject);
     }
 }
