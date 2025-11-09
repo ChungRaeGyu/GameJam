@@ -53,7 +53,7 @@ public class SpaceBarPanel : SpaceBarParent
                 failCount--;
                 //실패 알림 해주기
                 Debug.Log("Fail " + failCount);
-                objs.Add(Instantiate(O, parent));
+                objs.Add(Instantiate(X, parent));
                 Reset();
                 yield return null;
             }
@@ -84,6 +84,7 @@ public class SpaceBarPanel : SpaceBarParent
                 speed = 200;
                 gameObject.SetActive(false);
                 GameManager.Instance.DNAManipulationPanelClose();
+                yield break;
             }
         }
     }
