@@ -3751,6 +3751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rareRate: 5
+  effectPrefab: {fileID: 0}
   units: []
   RareUnits: []
 --- !u!1 &841754949
@@ -5085,6 +5086,7 @@ MonoBehaviour:
   EventTimer: 2
   winPanel: {fileID: 292438973}
   bookPanel: {fileID: 876717660}
+  goalText: {fileID: 0}
 --- !u!4 &1216602430
 Transform:
   m_ObjectHideFlags: 0
@@ -7591,6 +7593,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987500649}
   m_CullTransparentMesh: 1
+--- !u!1 &2052771843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2052771845}
+  - component: {fileID: 2052771844}
+  m_Layer: 0
+  m_Name: tIMETM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2052771844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052771843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9acc215093c3a924ab551714949e07a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  director: {fileID: 1935688426}
+  nextSceneName: MainScene
+--- !u!4 &2052771845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052771843}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2083613807
 GameObject:
   m_ObjectHideFlags: 0
@@ -8029,6 +8077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc5d974b349951b46838a2a305221a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rateText: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -8044,3 +8093,4 @@ SceneRoots:
   - {fileID: 1843009216}
   - {fileID: 838836486}
   - {fileID: 385610374}
+  - {fileID: 2052771845}
