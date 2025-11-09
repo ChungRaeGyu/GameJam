@@ -1,10 +1,15 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SpaceBarPanel : SpaceBarParent
 {
-
+    public GameObject O;
+    public GameObject X;
+    public Transform parent;
+    public List<GameObject> objs = new List<GameObject>();
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -27,8 +32,10 @@ public class SpaceBarPanel : SpaceBarParent
                     successCount++;
                     Debug.Log("Success" + successCount);
                     speed += 100;
+                    objs.Add(Instantiate(O, parent));
                     Reset();
-                    //이펙트 강화 성공 실패 이펙트 넣어주기 
+                    //이펙트 강화 성공 실패 이펙트 넣어주기
+
 
                 }
                 else
@@ -37,6 +44,7 @@ public class SpaceBarPanel : SpaceBarParent
                     //실패 알림 해주기
                     Debug.Log($"DNA : {rightDNA.anchoredPosition.x} , Line : {line.anchoredPosition}");
                     Debug.Log("Fail " + "잘못누름");
+                    objs.Add(Instantiate(X, parent));
                     Reset();
                 }
             }
@@ -45,6 +53,7 @@ public class SpaceBarPanel : SpaceBarParent
                 failCount--;
                 //실패 알림 해주기
                 Debug.Log("Fail " + failCount);
+                objs.Add(Instantiate(O, parent));
                 Reset();
                 yield return null;
             }
@@ -90,7 +99,10 @@ public class SpaceBarPanel : SpaceBarParent
             image.color = new Color(1, 1, 1, 0);
         }
         GameManager.Instance.manipulationDNA.Clear();
-
+        foreach(var obj in objs)
+        {
+            Destroy(obj);
+        }
 
         //다 원상복구 시키기 
         //AnimatorOver 실행

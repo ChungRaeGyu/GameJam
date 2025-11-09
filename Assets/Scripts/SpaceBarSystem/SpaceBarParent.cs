@@ -41,6 +41,7 @@ public class SpaceBarParent : MonoBehaviour,ITargetable
     {
         leftDNA.anchoredPosition = originLeftDNA;
         rightDNA.anchoredPosition = originRightDNA;
+
     }
 
     protected void Over()

@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        Screen.SetResolution(640, 860,false);
+
     }
     private void Start()
     {
@@ -68,6 +70,7 @@ public class GameManager : MonoBehaviour
     public GameObject bookPanel;
 
     public Text goalText;
+
     public void ChoiceDNAScrollViewControl(GameObject obj = null)
     {
         choiceDNAScrollView.SetActive(!choiceDNAScrollView.activeSelf);
