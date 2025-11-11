@@ -63,8 +63,6 @@ public class GameManager : MonoBehaviour
 
     public int spawnCount = 0;
 
-    public float EventTimer = 2f;
-
     public GameObject winPanel;
 
     public GameObject bookPanel;
@@ -103,6 +101,7 @@ public class GameManager : MonoBehaviour
             image.color = new Color(1, 1, 1, 0);
         }
         manipulationDNA.Clear();
+        PlayingControl(true);
         DNAManipulationPanel.SetActive(false);
         DNAManipulationBackGround.SetActive(false);
     }
@@ -176,5 +175,6 @@ public class GameManager : MonoBehaviour
     public void BookControl()
     {
         bookPanel.SetActive(!bookPanel.activeSelf);
+        GameManager.Instance.PlayingControl(!bookPanel.activeSelf);
     }
 }

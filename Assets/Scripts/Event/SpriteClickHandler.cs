@@ -13,11 +13,19 @@ public class SpriteClickHandler : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
-        c = StartCoroutine(Timer());
+        c = StartCoroutine(Timer(FigureDataManager.eventTime));
     }
-    IEnumerator Timer()
+    IEnumerator Timer(float time)
     {
-        yield return new WaitForSecondsRealtime(2f);
+        float timer = 0;
+        while(timer < time)
+        {
+            if (GameManager.Instance.isPlaying)
+            {
+                timer += Time.unscaledDeltaTime;
+            }
+            yield return null;
+        }
         eventParent.target1.GetComponent<EventSystem>().EventOver();
         if(eventParent.target2!=null)
             eventParent.target2.GetComponent<EventSystem>().EventOver();

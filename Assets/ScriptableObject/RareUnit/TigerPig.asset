@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd37b653ae7aec478fc4ccf375b24ac, type: 3}
   m_Name: TigerPig
   m_EditorClassIdentifier: 
-  sprite: {fileID: -4575523407858591723, guid: 51b212c38ac66d84fb1ba6d77b23b06d, type: 3}
-  unitKind: 0
+  sprite: {fileID: 1772491974776502449, guid: dd2c8120c38c9dd4485b3f1468e09395, type: 3}
+  unitKind: 1
   prefab: {fileID: 4520698238617511899, guid: b508cb5717063d347ab3daee5d336ff4, type: 3}
   nametxt: "\uB3FC\uB791\uC774"
   description: "\uC774 \uCE5C\uAD6C\uB294 \uBA87 \uD0A4\uB85C \uB098\uAE54\uAE4C?"

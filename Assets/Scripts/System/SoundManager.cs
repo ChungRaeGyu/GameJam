@@ -1,23 +1,15 @@
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : Singleton<SoundManager>
 {
-    public static SoundManager instance;
     [SerializeField]private AudioClip buttonClip;
     [SerializeField] private AudioClip spawnClip;
     private AudioSource source;
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(instance);
-        }
-        source = GetComponent<AudioSource>();
+        base.Awake();
+        source = gameObject.AddComponent<AudioSource>();
     }
     public void ButtonSoundPlay()
     {

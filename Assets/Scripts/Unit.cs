@@ -50,7 +50,6 @@ public class Unit : MonoBehaviour
         unitSO.unitKind = (kind)Random.Range(0, (int)kind.Count);
         //성격에 따른 EventRate 조정
         eventSystem.SetRate();
-        GameManager.Instance.PlayingControl(true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
