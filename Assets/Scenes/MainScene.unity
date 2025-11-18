@@ -2326,6 +2326,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &539735896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 539735898}
+  - component: {fileID: 539735897}
+  m_Layer: 0
+  m_Name: UImanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &539735897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539735896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec84dc9daa4d1dc4ba2ef8284b5ecda0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab:
+  - {fileID: 6102411346989325837, guid: 1ef518f81ee4ef14cbb140c6cbfe660f, type: 3}
+  - {fileID: 6102411346989325837, guid: 6bccc41098104fe4fb2a4c98755c070d, type: 3}
+--- !u!4 &539735898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539735896}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -821.80255, y: 2047.0276, z: -11.691633}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &570483412
 GameObject:
   m_ObjectHideFlags: 0
@@ -4286,7 +4333,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "# 002 \uB300\n\n\n"
+  m_Text: '#???
+
+'
 --- !u!222 &1034898934
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4615,7 +4664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1205261655
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6298,7 +6347,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "# 002 \uB300\n\n\n"
+  m_Text: '
+
+
+'
 --- !u!222 &1681339691
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7510,7 +7562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2138253272
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7596,3 +7648,4 @@ SceneRoots:
   - {fileID: 838836486}
   - {fileID: 385610374}
   - {fileID: 875205526}
+  - {fileID: 539735898}

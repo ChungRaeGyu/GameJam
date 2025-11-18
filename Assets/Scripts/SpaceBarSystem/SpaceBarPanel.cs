@@ -77,7 +77,7 @@ public class SpaceBarPanel : SpaceBarParent
     }
     private void StartSetting()
     {
-        ////ManipulationDNA패널이 열릴때 실행되어야겠네
+        ////ManipulationDNA패널이 열릴때 실행되어야겠네 게임매너지에 또 있다
         //foreach (var t in GameManager.Instance.manipulationDNA)
         //{
         //    t.Key.GetComponent<Button>().enabled = true;

@@ -14,10 +14,11 @@ public class Unit : MonoBehaviour
     void Awake()
     {
         eventSystem = GetComponent<EventSystem>();
+        limittime = 2f;
     }
     private void Start()
     {
-        moveDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        moveDirection = Vector2.zero;
     }
     // Update is called once per frame
     void FixedUpdate()

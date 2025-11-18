@@ -29,7 +29,12 @@ public class SpawnSystem : MonoBehaviour
             GameObject temp = SpawnUnit(unitSO);
             Instantiate(effectPrefab, transform.position, Quaternion.identity);
             RareUnits.Add(temp); //현재 필드위에 있는 레어 유닛
-            DataManager.Instance.currentRareUnitSO.Add(unitSO); //도감에 넣어 놓기 위해
+            if (!DataManager.Instance.currentRareUnitSO.Contains(unitSO))
+            {
+                //새로운 애만 넣어준다. 
+                DataManager.Instance.currentRareUnitSO.Add(unitSO); //도감에 넣어 놓기 위해
+                UIManager.Instance.ShowText(temp.transform.position,(int)UI.NEW);
+            }
             GameManager.Instance.GameOver(RareUnits.Count);
         }
         else if (rand < rareRate + normalRate)
@@ -40,34 +45,6 @@ public class SpawnSystem : MonoBehaviour
         }
         SoundManager.Instance.SpawnSoundPlay();
 
-    }
-    public void Spawn()
-    {
-        if (GameManager.Instance.spawnCount == FigureDataManager.upgraderareSpawnRate[0]
-            || GameManager.Instance.spawnCount == FigureDataManager.upgraderareSpawnRate[1])
-        {
-            rareRate += FigureDataManager.plusRareRate;
-        }
-        int rand = Random.Range(0, 100);
-
-        UnitSO[] tempSO = KeyToArray();
-
-        if (rand < rareRate)
-        {
-            //희귀
-            UnitSO unitSO = FindRareUnit(tempSO[0], tempSO[1]);
-            GameObject temp = SpawnUnit(unitSO);
-            Instantiate(effectPrefab, transform.position, Quaternion.identity);
-            RareUnits.Add(temp); //현재 필드위에 있는 레어 유닛
-            DataManager.Instance.currentRareUnitSO.Add(unitSO); //도감에 넣어 놓기 위해
-            GameManager.Instance.GameOver(RareUnits.Count);
-        }
-        else if (rand < rareRate + normalRate)
-        {
-            int random = Random.Range(0, 2);
-            UnitSO unitSO = tempSO[random];
-            SpawnUnit(unitSO);
-        }
     }
 
     private GameObject SpawnUnit(UnitSO unitSO)

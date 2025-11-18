@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,13 +33,10 @@ public class BookPanel : MonoBehaviour
     }
     public void Next()
     {
-        
         if(num< DataManager.Instance.currentRareUnitSO.Count-1)
         {
             num++;
             Set(DataManager.Instance.currentRareUnitSO[num]);
         }
-        
-
     }
 }

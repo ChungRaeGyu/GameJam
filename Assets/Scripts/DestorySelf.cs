@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DestorySelf : MonoBehaviour
 {
+    [SerializeField] float waitTime = 2f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -10,7 +11,7 @@ public class DestorySelf : MonoBehaviour
     }
     IEnumerator Remove()
     {
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(waitTime);
         Destroy(gameObject);
     }
 }
