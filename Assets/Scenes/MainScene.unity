@@ -4615,7 +4615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1205261655
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5275,8 +5275,8 @@ Transform:
   m_GameObject: {fileID: 1375005018}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3918, y: -0.7073, z: 0}
-  m_LocalScale: {x: 0.34590557, y: 0.3343406, z: 0.33}
+  m_LocalPosition: {x: 1.3125, y: -0.8999, z: 0}
+  m_LocalScale: {x: 0.3851118, y: 0.3467598, z: 0.33}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 666583392}
@@ -7414,6 +7414,7 @@ MonoBehaviour:
   stage2RareUnitSO:
   - {fileID: 11400000, guid: 22ab33e59e63a714dae7ecdf7a70af15, type: 2}
   - {fileID: 11400000, guid: dd7a8d7c66b32e64b9e6f801d02b0a88, type: 2}
+  - {fileID: 11400000, guid: ba1108c1a4fa2444fa90ab7aafa3dcc6, type: 2}
   currentRareUnitSO: []
   stage: 1
 --- !u!1 &2135643279
@@ -7509,7 +7510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2138253272
 RectTransform:
   m_ObjectHideFlags: 0

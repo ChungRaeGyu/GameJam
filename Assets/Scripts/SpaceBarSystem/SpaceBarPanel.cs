@@ -13,6 +13,8 @@ public class SpaceBarPanel : SpaceBarParent
     protected override void OnEnable()
     {
         base.OnEnable();
+        speed = 200;
+        StartSetting();
         StartCoroutine(MouseClick());
     }
     IEnumerator MouseClick(){
@@ -53,46 +55,40 @@ public class SpaceBarPanel : SpaceBarParent
             if (successCount >= 3)
             {
                 over = false;
-
+                //끝났을때를 확인하네 그냥 일단 다 꺼버리고 시작할때 원복 하면 되지 않을까
                 GameManager.Instance.ShowDescription("Success");
-                yield return new WaitForSecondsRealtime(1f);
-                SoundManager.Instance.SpawnSoundPlay();
-                GameManager.Instance.spawnSystem.Spawn();
-                //소환 
-                End();
-                speed = 200;
+                GameManager.Instance.StartC(GameManager.Instance.spawnSystem.CSpawn());
                 gameObject.SetActive(false);
                 GameManager.Instance.DNAManipulationPanelClose();
+                //소환 
 
                 yield break;
             }
             if (failCount <= 0)
             {
                 //완전 실패 패널 닫아버리기
-                GameManager.Instance.ShowDescription("Fail");
-                End();
                 over = false;
-                speed = 200;
+                GameManager.Instance.ShowDescription("Fail");
                 gameObject.SetActive(false);
                 GameManager.Instance.DNAManipulationPanelClose();
                 yield break;
             }
         }
     }
-    private void End()
+    private void StartSetting()
     {
-        foreach (var t in GameManager.Instance.manipulationDNA)
-        {
-            t.Key.GetComponent<Button>().enabled = true;
-            Image image = t.Key.GetComponent<RNAChange>().unitImage;
-            image.sprite = GameManager.Instance.uiSprite;
-            image.color = new Color(1, 1, 1, 0);
-        }
-        GameManager.Instance.manipulationDNA.Clear();
+        ////ManipulationDNA패널이 열릴때 실행되어야겠네
+        //foreach (var t in GameManager.Instance.manipulationDNA)
+        //{
+        //    t.Key.GetComponent<Button>().enabled = true;
+        //    Image image = t.Key.GetComponent<RNAChange>().unitImage;
+        //    image.sprite = GameManager.Instance.uiSprite;
+        //    image.color = new Color(1, 1, 1, 0);
+        //}
+        //GameManager.Instance.manipulationDNA.Clear();
         foreach(var obj in objs)
         {
             Destroy(obj);
         }
-
     }
 }

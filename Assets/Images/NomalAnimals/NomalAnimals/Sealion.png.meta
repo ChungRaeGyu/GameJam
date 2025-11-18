@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c1e7506cf559ccf4db8b8a2294fa8d90
+guid: e0bde1ab0d990784f88e8a3bf2369858
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3840191845713942353
-    second: PigLion_0
+      213: -6201682123984425242
+    second: Sealion_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PigLion_0
+      name: Sealion_0
       rect:
         serializedVersion: 2
         x: 64
-        y: 88
+        y: 55
         width: 395
-        height: 379
+        height: 412
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1579121332a1b4530800000000000000
-      internalID: 3840191845713942353
+      spriteID: 6eea40657f23fe9a0800000000000000
+      internalID: -6201682123984425242
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PigLion_0: 3840191845713942353
+      Sealion_0: -6201682123984425242
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

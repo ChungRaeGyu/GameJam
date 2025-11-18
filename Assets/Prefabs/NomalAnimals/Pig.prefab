@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4295056042242595674}
   - component: {fileID: 9026101425529109592}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PigTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: -3589046718489808551}
   - component: {fileID: -3932223253870253773}
   - component: {fileID: 1840333315011677832}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -269,7 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6206381522822505596}
   - component: {fileID: 6536876450730042783}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PigBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

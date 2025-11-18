@@ -92,15 +92,7 @@ public class GameManager : MonoBehaviour
     public void DNAManipulationPanelClose()
     {
         //DNA 조작 패널 닫기
-        foreach (var t in manipulationDNA)
-        {
-            Debug.Log(t.Key.name + " t이름");
-            t.Key.GetComponent<Button>().enabled = true;
-            Image image = t.Key.GetComponent<RNAChange>().unitImage;
-            image.sprite = uiSprite;
-            image.color = new Color(1, 1, 1, 0);
-        }
-        manipulationDNA.Clear();
+
         PlayingControl(true);
         DNAManipulationPanel.SetActive(false);
         DNAManipulationBackGround.SetActive(false);
@@ -119,11 +111,27 @@ public class GameManager : MonoBehaviour
         if (DNAManipulationBackGround.activeSelf)
         {
             SpaceBarPanelControl();
-            yield break;
         }
-        DNAManipulationPanel.SetActive(true);
-        DNAManipulationBackGround.SetActive(true);
-        PlayingControl(false);
+        else
+        {
+            //DNA 조작 패널 열기
+            DNAManipulationPanel.SetActive(true);
+            DNAManipulationBackGround.SetActive(true);
+
+
+            //썻던걸 초기화 하는건 항상 시작할때로 하자
+            foreach (var t in manipulationDNA)
+            {
+                Debug.Log(t.Key.name + " t이름");
+                t.Key.GetComponent<Button>().enabled = true;
+                Image image = t.Key.GetComponent<RNAChange>().unitImage;
+                image.sprite = uiSprite;
+                image.color = new Color(1, 1, 1, 0);
+            }
+            manipulationDNA.Clear();
+
+            PlayingControl(false);
+        }
     }
     public void PlayingControl(bool bol)
     {
@@ -176,5 +184,10 @@ public class GameManager : MonoBehaviour
     {
         bookPanel.SetActive(!bookPanel.activeSelf);
         GameManager.Instance.PlayingControl(!bookPanel.activeSelf);
+    }
+
+    public void StartC(IEnumerator corountine)
+    {
+        StartCoroutine(corountine);
     }
 }

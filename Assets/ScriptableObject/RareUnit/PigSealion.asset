@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd37b653ae7aec478fc4ccf375b24ac, type: 3}
+  m_Name: PigSealion
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 3840191845713942353, guid: c1e7506cf559ccf4db8b8a2294fa8d90, type: 3}
+  unitKind: 0
+  prefab: {fileID: 3397253410229188219, guid: 11d46f14094d2a546b8bc0886c373e86, type: 3}
+  nametxt: "\uB3FC\uC0AC\uC790"
+  description: "\uBAA8\uB974\uACA0\uB2E4~~"
+  unitA: {fileID: 11400000, guid: 9837ade4ebb4772479dca9afe7a47534, type: 2}
+  unitB: {fileID: 11400000, guid: 25e5bb91f5d9a3149bb450770a050b56, type: 2}

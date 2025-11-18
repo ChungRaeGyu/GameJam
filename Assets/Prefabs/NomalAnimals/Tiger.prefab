@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7038108995180909970}
   - component: {fileID: 7691265448977477620}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TigerBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4133776689187903116}
   - component: {fileID: 5339454662216697807}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TigerTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: -6390379126145135800}
   - component: {fileID: -6070212149762008008}
   - component: {fileID: -7009318621932183894}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tiger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8217557236063101050}
   - component: {fileID: 5314060207529110674}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BirdTop_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5760074716466477884}
   - component: {fileID: 3771148878523057595}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BirdBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: -4861608278673451304}
   - component: {fileID: 5531056996692596693}
   - component: {fileID: -5339011439416580225}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bird
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

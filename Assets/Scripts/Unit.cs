@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    //[HideInInspector]
+    [HideInInspector]
     public UnitSO unitSO;
     
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 1f;
     [SerializeField] private float limittime = 5f;
     private float timer;
     private Vector2 moveDirection;

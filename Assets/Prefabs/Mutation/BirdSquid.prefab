@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 76566781605740900}
   - component: {fileID: 132131597459004404}
   - component: {fileID: 7142588098374733998}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BirdsquidTop_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 772397402314519452}
   - component: {fileID: -1719788624550709254}
   - component: {fileID: -7605555177631253884}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BirdSquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3110899509422607668}
   - component: {fileID: 4674943974338015201}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BirdsquidBottom_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,6 +378,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3697390846299181772}
     m_Modifications:
+    - target: {fileID: 1405375894177844392, guid: 0e932df1068f8704ca3c2b0bd83dea65, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3182853367149017269, guid: 0e932df1068f8704ca3c2b0bd83dea65, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -430,9 +434,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4368492430038536253, guid: 0e932df1068f8704ca3c2b0bd83dea65, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8707820888114484231, guid: 0e932df1068f8704ca3c2b0bd83dea65, type: 3}
       propertyPath: m_Name
       value: Flash_round_ellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707820888114484231, guid: 0e932df1068f8704ca3c2b0bd83dea65, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

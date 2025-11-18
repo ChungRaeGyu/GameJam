@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a149ee2c05612b249abe751dca93cda9
+guid: c1e7506cf559ccf4db8b8a2294fa8d90
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2594960506625645698
-    second: Squidsealion_0
+      213: 3840191845713942353
+    second: PigLion_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Squidsealion_0
+      name: PigLion_0
       rect:
         serializedVersion: 2
         x: 64
-        y: 55
+        y: 88
         width: 395
-        height: 412
+        height: 379
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 28cd69305d6230420800000000000000
-      internalID: 2594960506625645698
+      spriteID: 1579121332a1b4530800000000000000
+      internalID: 3840191845713942353
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Squidsealion_0: 2594960506625645698
+      PigLion_0: 3840191845713942353
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
