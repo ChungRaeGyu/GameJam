@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.03, y: -0.00000026816}
-  m_SizeDelta: {x: 71.266, y: 41.169}
+  m_AnchoredPosition: {x: 7.796, y: -0.00000026816}
+  m_SizeDelta: {x: 186.597, y: 41.169}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5134867294194533137
 CanvasRenderer:
@@ -153,9 +153,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '+2
-
-'
+  m_Text: "+2 \uB3CC\uC5F0\uBCC0\uC774 +5%\n"
 --- !u!1 &6102411346989325837
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +167,7 @@ GameObject:
   - component: {fileID: 2199818162146353284}
   - component: {fileID: 6500571609411563101}
   - component: {fileID: 5009949252505417173}
+  - component: {fileID: -5471902606135269271}
   m_Layer: 5
   m_Name: PlusEnergy
   m_TagString: Untagged
@@ -242,7 +241,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &6500571609411563101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,3 +272,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 1
+--- !u!114 &-5471902606135269271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6102411346989325837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f09454d2e6e604d9151dbcd38dea9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.001

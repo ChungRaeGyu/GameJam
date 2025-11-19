@@ -9,6 +9,7 @@ enum UI
 }
 public class UIManager : Singleton<UIManager>
 {
+    //지금 처럼 그냥 맵 중간에서 보여줄꺼면 worldposition으로 할 필요 없음 ㅇㅇ
     [SerializeField] GameObject[] prefab;
 
     public void ShowText(Vector2 pos,int ui)

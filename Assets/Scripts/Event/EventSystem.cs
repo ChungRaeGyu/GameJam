@@ -62,7 +62,6 @@ public class EventSystem : MonoBehaviour
     {
         int rand = Random.Range(0, 100);
         isEvent = true;
-        Debug.Log("∏ÿ√„");
         if (rand < fightEventRate)
         {
             if (GameManager.Instance.spawnSystem.units.Count <= 1)

@@ -34,6 +34,7 @@ public class EnergySystem : MonoBehaviour
         {
             energys[i].SetActive(false);
         }
+        UIManager.Instance.ShowText(new Vector2(0,0),(int)UI.ENERGY);
     }
 
     
