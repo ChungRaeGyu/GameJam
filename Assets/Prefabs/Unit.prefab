@@ -195,6 +195,7 @@ MonoBehaviour:
   fightEventRate: 25
   painEventRate: 25
   loveEventRate: 25
+  lonelyEventRate: 25
   isEvent: 0
   events:
   - {fileID: 2636813979089654014, guid: 0ca14f4af563a7148bda1e3e3b677e59, type: 3}

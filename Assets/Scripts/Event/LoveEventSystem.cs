@@ -34,7 +34,7 @@ public class LoveEventSystem : SpaceBarParent, ITargetable
                     GameManager.Instance.ShowDescription("Success");
                     //¼º°ø
                     GameManager.Instance.spawnSystem.rareRate += 5;
-                    GameManager.Instance.energySystem.RecoverEnergy();
+                    GameManager.Instance.energySystem.RecoverEnergy(targetObjs[0].transform);
 
                     yield return new WaitForSecondsRealtime(1f);
                 }

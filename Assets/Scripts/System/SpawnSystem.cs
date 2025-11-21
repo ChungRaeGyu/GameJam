@@ -33,7 +33,7 @@ public class SpawnSystem : MonoBehaviour
             {
                 //새로운 애만 넣어준다. 
                 DataManager.Instance.currentRareUnitSO.Add(unitSO); //도감에 넣어 놓기 위해
-                UIManager.Instance.ShowText(new Vector2(0,0),(int)UI.NEW);//UI보여주기
+                UIManager.Instance.ShowText(temp.transform, (int)UI.NEW);//UI보여주기
             }
             GameManager.Instance.GameOver(RareUnits.Count);
         }

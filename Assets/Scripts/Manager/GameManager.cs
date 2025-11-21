@@ -175,9 +175,15 @@ public class GameManager : MonoBehaviour
         goalText.text = $"{num}/{goal}";
         if (num >= goal) 
         {
-            PlayingControl(false);
-            winPanel.SetActive(true);
+            StartCoroutine(CGameOver());
+
         }
+    }
+    IEnumerator CGameOver()
+    {
+        yield return new WaitForSeconds(3);
+        PlayingControl(false);
+        winPanel.SetActive(true);
     }
 
     public void BookControl()

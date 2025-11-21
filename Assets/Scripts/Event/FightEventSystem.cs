@@ -1,13 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class FightEventSystem : SpaceBarParent, ITargetable
+public class FightEventSystem : SpaceBarParent
 {
-
-
-    //줌인 효과
-    //성공 실패시 줌아웃, 및 상황 원상 복구 
-    // 성공 효과 
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -34,7 +29,7 @@ public class FightEventSystem : SpaceBarParent, ITargetable
                     GameManager.Instance.ShowDescription("Success");
                     //성공
                     GameManager.Instance.spawnSystem.rareRate += 5;
-                    GameManager.Instance.energySystem.RecoverEnergy();
+                    GameManager.Instance.energySystem.RecoverEnergy(targetObjs[0].transform);
 
                     yield return new WaitForSecondsRealtime(1f);
                 }

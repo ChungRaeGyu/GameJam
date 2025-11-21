@@ -27,14 +27,14 @@ public class EnergySystem : MonoBehaviour
         }
     }
 
-    public void RecoverEnergy()
+    public void RecoverEnergy(Transform target)
     {
         currentEnergy = Math.Min(currentEnergy + 2, maxEnergy);
         for (int i=0; i < currentEnergy; i++)
         {
             energys[i].SetActive(false);
         }
-        UIManager.Instance.ShowText(new Vector2(0,0),(int)UI.ENERGY);
+        UIManager.Instance.ShowText(target, (int)UI.ENERGY);
     }
 
     
