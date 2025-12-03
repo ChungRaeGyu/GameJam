@@ -31,7 +31,6 @@ public class SpaceBarParent : MonoBehaviour,ITargetable
     }
     protected virtual void OnEnable()
     {
-        Debug.Log("ONEnable");
         Reset();
         over = true;
         failCount = 3;

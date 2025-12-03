@@ -18,7 +18,6 @@ public class UnitCard : MonoBehaviour
     private void ChoiceDNA()
     {
         Image image = GameManager.Instance.currentDNASlot.GetComponent<RNAChange>().unitImage;
-        Debug.Log(image.gameObject.name);
         image.sprite = unitso.sprite;
         image.color = new Color(1,1,1,1);
 

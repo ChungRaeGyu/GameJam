@@ -120,19 +120,24 @@ public class GameManager : MonoBehaviour
 
 
             //썻던걸 초기화 하는건 항상 시작할때로 하자
-            foreach (var t in manipulationDNA)
-            {
-                Debug.Log(t.Key.name + " t이름");
-                t.Key.GetComponent<Button>().enabled = true;
-                Image image = t.Key.GetComponent<RNAChange>().unitImage;
-                image.sprite = uiSprite;
-                image.color = new Color(1, 1, 1, 0);
-            }
-            manipulationDNA.Clear();
+            //ManipulationDNAClear();
 
             PlayingControl(false);
         }
     }
+
+    public void ManipulationDNAClear()
+    {
+        foreach (var t in manipulationDNA)
+        {
+            t.Key.GetComponent<Button>().enabled = true;
+            Image image = t.Key.GetComponent<RNAChange>().unitImage;
+            image.sprite = uiSprite;
+            image.color = new Color(1, 1, 1, 0);
+        }
+        manipulationDNA.Clear();
+    }
+
     public void PlayingControl(bool bol)
     {
         isPlaying = bol;
@@ -160,7 +165,6 @@ public class GameManager : MonoBehaviour
 
     public void ShowDescription(string text)
     {
-        Debug.Log("텍스트 : " + text);
         testDescriptionPanel.SetActive(true);
         testText.text = text;
     }

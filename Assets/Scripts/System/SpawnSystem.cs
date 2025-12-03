@@ -12,6 +12,7 @@ public class SpawnSystem : MonoBehaviour
     public List<GameObject> RareUnits = new List<GameObject>();
     public IEnumerator CSpawn()
     {
+        UnitSO[] tempSO = KeyToArray();
         yield return new WaitForSeconds(2f);
         if (GameManager.Instance.spawnCount == FigureDataManager.upgraderareSpawnRate[0]
         || GameManager.Instance.spawnCount == FigureDataManager.upgraderareSpawnRate[1])
@@ -20,7 +21,6 @@ public class SpawnSystem : MonoBehaviour
         }
         int rand = Random.Range(0, 100);
 
-        UnitSO[] tempSO = KeyToArray();
 
         if (rand < rareRate)
         {
@@ -64,7 +64,7 @@ public class SpawnSystem : MonoBehaviour
         {
             tem.Add(t.Value);
         }
-
+        GameManager.Instance.ManipulationDNAClear();
         return tem.ToArray();
     }
 
