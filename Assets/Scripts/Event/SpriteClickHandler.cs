@@ -6,6 +6,7 @@ public class SpriteClickHandler : MonoBehaviour
     private Camera cam;
     private EventParent eventParent;
     private Coroutine c;
+    private bool isClicked = false;
     private void Awake()
     {
         eventParent = GetComponent<EventParent>();
@@ -33,7 +34,7 @@ public class SpriteClickHandler : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)&&!isClicked)
         {
             CheckClick(Input.mousePosition);
         }
@@ -62,6 +63,7 @@ public class SpriteClickHandler : MonoBehaviour
 
     private void OnClick()
     {
+        isClicked = true;
         GetComponent<SpriteRenderer>().color = Color.yellow;
         StopCoroutine(c);//ƒ⁄∑Á∆æ ∏ÿ√Ë∞Ì 
         //¡‹Ω√¿€
