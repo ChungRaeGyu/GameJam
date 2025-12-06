@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
         //DNA 조작 패널 닫기
 
         PlayingControl(true);
+        ManipulationDNAClear();
         DNAManipulationPanel.SetActive(false);
         DNAManipulationBackGround.SetActive(false);
     }
