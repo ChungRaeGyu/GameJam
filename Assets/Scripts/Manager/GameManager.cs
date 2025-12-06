@@ -90,12 +90,12 @@ public class GameManager : MonoBehaviour
     {
         spaceBarPanel.SetActive(false);
     }
-    public void DNAManipulationPanelClose()
+    public void DNAManipulationPanelClose(bool check = false)
     {
         //DNA 조작 패널 닫기
-
+        if(!check)
+            ManipulationDNAClear();
         PlayingControl(true);
-        ManipulationDNAClear();
         DNAManipulationPanel.SetActive(false);
         DNAManipulationBackGround.SetActive(false);
     }

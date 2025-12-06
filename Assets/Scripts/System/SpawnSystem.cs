@@ -6,7 +6,6 @@ public class SpawnSystem : MonoBehaviour
 {
     int normalRate = FigureDataManager.normalSpawnRate;
     public int rareRate = FigureDataManager.rareSpawnRate;
-    public GameObject effectPrefab;
 
     public List<GameObject> units = new List<GameObject>();
     public List<GameObject> RareUnits = new List<GameObject>();
@@ -27,7 +26,7 @@ public class SpawnSystem : MonoBehaviour
             //Èñ±Í
             UnitSO unitSO = FindRareUnit(tempSO[0], tempSO[1]);
             GameObject temp = SpawnUnit(unitSO);
-            Instantiate(effectPrefab, transform.position, Quaternion.identity);
+            Instantiate(UIManager.Instance.effect, transform.position, Quaternion.identity);
             RareUnits.Add(temp); //ÇöÀç ÇÊµåÀ§¿¡ ÀÖ´Â ·¹¾î À¯´Ö
             if (!DataManager.Instance.currentRareUnitSO.Contains(unitSO))
             {
@@ -42,6 +41,8 @@ public class SpawnSystem : MonoBehaviour
             int random = Random.Range(0, 2);
             UnitSO unitSO = tempSO[random];
             SpawnUnit(unitSO);
+            Instantiate(UIManager.Instance.normalEffect, transform.position, Quaternion.identity);
+
         }
         SoundManager.Instance.SpawnSoundPlay();
 

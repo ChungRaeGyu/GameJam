@@ -153,7 +153,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "     +2 \n\uB3CC\uC5F0\uBCC0\uC774 +5%\n\n"
+  m_Text: "     +2 \n\uB3CC\uC5F0\uBCC0\uC774 +8%\n\n"
 --- !u!1 &6102411346989325837
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &6500571609411563101
 MonoBehaviour:
   m_ObjectHideFlags: 0

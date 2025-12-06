@@ -15,5 +15,5 @@ public class FigureDataManager : Singleton<FigureDataManager>
     public const int rareSpawnRate = 20;
 
     public static readonly int[] upgraderareSpawnRate = new int[2] { 5, 9 };
-    public const int plusRareRate = 10;
+    public const int plusRareRate = 8;
 }

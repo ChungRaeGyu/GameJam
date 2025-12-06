@@ -15,6 +15,9 @@ public class UIManager : Singleton<UIManager>
     public Transform targetPos;
 
     public GameObject Canvas;
+
+    public GameObject effect;
+    public GameObject normalEffect;
     public void ShowText(Transform pos,int ui)
     {
         //없어지는 텍스트
