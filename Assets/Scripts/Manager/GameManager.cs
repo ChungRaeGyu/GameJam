@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
     }
     public void ChoiceDNAClose()
     {
+        Debug.Log("Close");
         choiceDNAScrollView.SetActive(false);
     }
     public void SpaceBarSystemClose()
