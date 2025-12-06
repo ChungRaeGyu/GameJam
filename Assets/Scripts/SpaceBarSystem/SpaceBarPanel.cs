@@ -32,7 +32,7 @@ public class SpaceBarPanel : SpaceBarParent
                     //성공 알림 해주고 패널 조금있다가 닫기
                     //여기서 확률 조정해주기
                     successCount++;
-                    Instantiate(UIManager.Instance.effect, transform.position, Quaternion.identity);
+                    UIManager.Instance.ShowEffectUI();
                     speed += 100;
                     objs.Add(Instantiate(O, parent));
                     Reset();

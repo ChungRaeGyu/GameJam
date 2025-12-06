@@ -14,10 +14,11 @@ public class UIManager : Singleton<UIManager>
     [HideInInspector]
     public Transform targetPos;
 
-    public GameObject Canvas;
+    public GameObject spaceBarPanel;
 
     public GameObject effect;
     public GameObject normalEffect;
+    public GameObject effectUI;
     public void ShowText(Transform pos,int ui)
     {
         //없어지는 텍스트
@@ -36,5 +37,10 @@ public class UIManager : Singleton<UIManager>
     public void TargetReset()
     {
         targetPos = null;
+    }
+
+    public void ShowEffectUI()
+    {
+        Instantiate(effectUI, spaceBarPanel.transform);
     }
 }
