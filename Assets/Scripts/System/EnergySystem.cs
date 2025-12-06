@@ -6,7 +6,7 @@ public class EnergySystem : MonoBehaviour
 {
     [SerializeField] int maxEnergy = 4;
     [SerializeField] int currentEnergy;
-    [SerializeField] GameObject[] energys;
+    [SerializeField] Image[] energys;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class EnergySystem : MonoBehaviour
         if (currentEnergy > 0)
         {
             currentEnergy--;
-            energys[currentEnergy].SetActive(true);
+            energys[currentEnergy].color = new Color(1,1,1,1);
             return true;
         }
         else
@@ -32,7 +32,7 @@ public class EnergySystem : MonoBehaviour
         currentEnergy = Math.Min(currentEnergy + 2, maxEnergy);
         for (int i=0; i < currentEnergy; i++)
         {
-            energys[i].SetActive(false);
+            energys[i].color = new Color(1, 1, 1, 0);
         }
         UIManager.Instance.ShowText(target, (int)UI.ENERGY);
     }
