@@ -454,7 +454,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9c6554550785d424a9dbfc0233af543b, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 9c6554550785d424a9dbfc0233af543b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3751,7 +3751,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rareRate: 5
-  effectPrefab: {fileID: 0}
   units: []
   RareUnits: []
 --- !u!1 &841754949
@@ -4196,6 +4195,10 @@ MonoBehaviour:
   speed: 200
   failCount: 0
   successCount: 0
+  O: {fileID: 0}
+  X: {fileID: 0}
+  parent: {fileID: 0}
+  objs: []
 --- !u!1 &987470825
 GameObject:
   m_ObjectHideFlags: 0
@@ -5083,7 +5086,6 @@ MonoBehaviour:
   uiSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   isPlaying: 0
   spawnCount: 0
-  EventTimer: 2
   winPanel: {fileID: 292438973}
   bookPanel: {fileID: 876717660}
   goalText: {fileID: 0}
@@ -5534,8 +5536,8 @@ Transform:
   m_GameObject: {fileID: 1375005018}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.36, y: -0.64, z: 0}
-  m_LocalScale: {x: 0.33, y: 0.33, z: 0.33}
+  m_LocalPosition: {x: 1.3369, y: -1.0077, z: 0}
+  m_LocalScale: {x: 0.45232394, y: 0.35370877, z: 0.33}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 666583392}

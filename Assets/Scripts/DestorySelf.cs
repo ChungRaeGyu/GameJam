@@ -14,4 +14,9 @@ public class DestorySelf : MonoBehaviour
         yield return new WaitForSecondsRealtime(waitTime);
         Destroy(gameObject);
     }
+
+    private void OnDisable()
+    {
+        Destroy(gameObject);
+    }
 }

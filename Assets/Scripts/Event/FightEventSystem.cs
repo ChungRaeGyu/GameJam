@@ -28,7 +28,7 @@ public class FightEventSystem : SpaceBarParent
                     Debug.Log("Success");
                     GameManager.Instance.ShowDescription("Success");
                     //¼º°ø
-                    GameManager.Instance.spawnSystem.rareRate += 5;
+                    GameManager.Instance.spawnSystem.rareRate += FigureDataManager.plusRareRate;
                     GameManager.Instance.energySystem.RecoverEnergy(targetObjs[0].transform);
 
                     yield return new WaitForSecondsRealtime(1f);
